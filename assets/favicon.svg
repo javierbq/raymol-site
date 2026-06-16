@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs><linearGradient id="t" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#F0185C"/><stop offset="52%" stop-color="#F2542D"/><stop offset="100%" stop-color="#F9A825"/>
+  </linearGradient></defs>
+  <rect width="200" height="200" rx="44" fill="url(#t)"/>
+  <text x="100" y="148" text-anchor="middle" font-family="-apple-system,Arial" font-weight="800" font-size="150" fill="#fff" stroke="#5A0A24" stroke-width="6">R</text>
+</svg>

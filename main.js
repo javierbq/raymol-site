@@ -1,0 +1,61 @@
+// Raymol.io — progressive enhancement. Each init is a no-op if its element is absent.
+'use strict';
+
+function initNav(){
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.getElementById('nav-links');
+  if(!toggle || !links) return;
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+}
+
+function initCompare(){
+  document.querySelectorAll('.compare-slider').forEach(el => {
+    const handle = el.querySelector('.compare-handle');
+    if(!handle) return;
+    let dragging = false;
+    const setPos = pct => {
+      pct = Math.max(0, Math.min(100, pct));
+      el.style.setProperty('--pos', pct + '%');
+      handle.setAttribute('aria-valuenow', String(Math.round(pct)));
+    };
+    const fromX = clientX => {
+      const r = el.getBoundingClientRect();
+      setPos(((clientX - r.left) / r.width) * 100);
+    };
+    el.addEventListener('pointerdown', e => { dragging = true; el.setPointerCapture(e.pointerId); fromX(e.clientX); });
+    el.addEventListener('pointermove', e => { if(dragging) fromX(e.clientX); });
+    el.addEventListener('pointerup', () => { dragging = false; });
+    handle.addEventListener('keydown', e => {
+      const cur = parseFloat(el.style.getPropertyValue('--pos')) || 50;
+      if(e.key === 'ArrowLeft'){ setPos(cur - 4); e.preventDefault(); }
+      if(e.key === 'ArrowRight'){ setPos(cur + 4); e.preventDefault(); }
+    });
+    setPos(50);
+  });
+}
+
+function initReveal(){
+  const els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNav();
+  initCompare();
+  initReveal();
+});
