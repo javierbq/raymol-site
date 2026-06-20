@@ -130,7 +130,14 @@
   .feat.flip .txt{order:2}
   .feat h2{font-size:38px;font-weight:800;margin-top:12px;line-height:1.1}
   .feat p{font-size:17px;color:var(--muted);margin-top:16px}
-  .feat .media{min-height:320px}
+  .feat .media{min-height:0}
+
+  /* THEMES */
+  .themes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+  .theme-card{margin:0;text-align:center}
+  .theme-card img{width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 12px 30px rgba(11,13,18,.14);display:block}
+  .theme-card figcaption{margin-top:12px;font-size:14px;font-weight:600;color:var(--ink)}
+  @media(max-width:880px){.themes-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
   @media(max-width:880px){.feat{grid-template-columns:1fr;gap:28px}.feat.flip .txt{order:0}}
 
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
