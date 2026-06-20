@@ -26,6 +26,11 @@
 
   .store-badge{display:inline-block}
   .store-badge img{height:54px;width:auto;display:block}
+  .store-badge.soon{opacity:.45;pointer-events:none}
+  .cta-soon{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:30px}
+  .cta-soon .cta-row{margin-top:0}
+  .soon-pill{display:inline-block;padding:8px 18px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.03em;background:linear-gradient(110deg,#F0185C,#F2542D);color:#fff;box-shadow:0 8px 24px rgba(240,24,92,.25)}
+  .soon-note{font-size:13px;color:#8a93a0}
 
   nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
@@ -103,6 +108,23 @@
   .sph-pbr{position:absolute;border-radius:50%}
   .floor-shadow{position:absolute;border-radius:50%;filter:blur(10px);background:rgba(0,0,0,.55)}
   @media(max-width:880px){.compare-slider{height:300px}}
+
+  /* COMPARISON CAROUSEL */
+  .carousel{position:relative;margin-top:36px}
+  .carousel-viewport{position:relative}
+  .carousel-slide{display:none}
+  .carousel-slide.active{display:block}
+  .slide-label{text-align:center;color:#fff;font-size:14px;font-weight:600;letter-spacing:.03em;opacity:.85;margin-bottom:14px}
+  .carousel .compare-slider{margin-top:0}
+  .carousel-arrow{position:absolute;top:56%;transform:translateY(-50%);z-index:9;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(10,11,15,.55);backdrop-filter:blur(6px);color:#fff;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .carousel-arrow:hover{background:rgba(10,11,15,.85)}
+  .carousel-arrow.prev{left:-14px}
+  .carousel-arrow.next{right:-14px}
+  .carousel-dots{display:flex;gap:9px;justify-content:center;margin-top:20px}
+  .carousel-dots .dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:background .2s}
+  .carousel-dots .dot.active{background:var(--gold)}
+  .carousel-dots .dot:focus-visible,.carousel-arrow:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  @media(max-width:880px){.carousel-arrow.prev{left:2px}.carousel-arrow.next{right:2px}}
 
   .feat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
   .feat.flip .txt{order:2}

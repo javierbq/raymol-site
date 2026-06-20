@@ -54,8 +54,27 @@ function initReveal(){
   els.forEach(el => io.observe(el));
 }
 
+function initCarousel(){
+  document.querySelectorAll('.carousel').forEach(car => {
+    const slides = Array.from(car.querySelectorAll('.carousel-slide'));
+    const dots = Array.from(car.querySelectorAll('.dot'));
+    if(slides.length < 2) return;
+    let i = 0;
+    const show = n => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle('active', k === i));
+      dots.forEach((d, k) => d.classList.toggle('active', k === i));
+    };
+    car.querySelector('.carousel-arrow.next')?.addEventListener('click', () => show(i + 1));
+    car.querySelector('.carousel-arrow.prev')?.addEventListener('click', () => show(i - 1));
+    dots.forEach((d, k) => d.addEventListener('click', () => show(k)));
+    show(0);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initCompare();
+  initCarousel();
   initReveal();
 });
