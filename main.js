@@ -72,8 +72,31 @@ function initCarousel(){
   });
 }
 
+function initHeroCarousel(){
+  const car = document.querySelector('.theme-carousel');
+  if(!car) return;
+  const slides = Array.from(car.querySelectorAll('.tc-slide'));
+  const dots = Array.from(car.querySelectorAll('.tc-dot'));
+  const label = car.querySelector('.tc-label');
+  const names = ['Classic', 'Paper', 'Sunset', 'Dawn'];
+  if(slides.length < 2) return;
+  let i = 0, timer = null;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const show = n => {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    dots.forEach((d, k) => d.classList.toggle('active', k === i));
+    if(label && names[i]) label.textContent = names[i];
+  };
+  const restart = () => { if(reduce) return; clearInterval(timer); timer = setInterval(() => show(i + 1), 3800); };
+  dots.forEach((d, k) => d.addEventListener('click', () => { show(k); restart(); }));
+  show(0);
+  restart();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
+  initHeroCarousel();
   initCompare();
   initCarousel();
   initReveal();
