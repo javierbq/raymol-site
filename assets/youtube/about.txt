@@ -1,0 +1,11 @@
+RayMol is molecular visualization built for Apple Silicon — a Metal-based build of the open-source PyMOL engine, native on Mac, iPad, and iPhone. Real-time rendering, a modern multitouch interface, and Raymond, an AI copilot that helps you load, style, and analyze structures just by asking.
+
+This channel covers feature demos, tutorials, and tips for visualizing proteins, ligands, and complexes — from publication figures to exploring a structure on your iPad.
+
+Free. Coming soon to the App Store.
+🔗 raymol.io
+
+---
+Channel name: RayMol
+Handle: @RayMolApp
+Website link: https://raymol.io
