@@ -1,0 +1,9 @@
+# Local gate tooling + deploy-staging from the private-preview era (retired
+# now that the site is public). Kept local only; the build scripts and full
+# dev history live on the local `archive/gate-dev` branch. tools/.gate-code is
+# a secret and must never be committed.
+/.deploy/
+/tools/
+
+# macOS / editor cruft
+.DS_Store
