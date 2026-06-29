@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add('js')</script>
-<title>Privacy Policy — Raymol</title>
-<meta name="description" content="Raymol's privacy policy. Raymol does not collect any personal data.">
-<link rel="canonical" href="https://raymol.io/privacy">
+<title>Support — Raymol</title>
+<meta name="description" content="Get help with Raymol: email support, report issues, and answers to common questions about the molecular visualization app for Mac, iPad, and iPhone.">
+<link rel="canonical" href="https://raymol.io/support">
 <meta name="theme-color" content="#F2542D">
 <meta name="robots" content="index,follow">
 
@@ -25,6 +25,8 @@ html,body{overflow-x:hidden;max-width:100%}
 .legal li{margin:6px 0}
 .legal a{color:#F2542D}
 .legal .lede{font-size:19px;color:var(--ink)}
+.legal .contact-card{margin:18px 0 8px;padding:20px 24px;border:1px solid var(--line,#e7e7ea);border-radius:14px;background:#fafafa}
+.legal .contact-card p{margin:6px 0}
 @media(max-width:880px){.legal h1{font-size:32px}}
 </style>
 <script src="/analytics.js" defer></script>
@@ -60,31 +62,27 @@ html,body{overflow-x:hidden;max-width:100%}
 
 <main id="main">
 <article class="legal">
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: June 22, 2026</p>
+  <h1>Support</h1>
+  <p class="updated">We're here to help.</p>
 
-  <p class="lede">The RayMol <strong>app</strong> does not collect, store, or share any personal data — it runs entirely on your device. This <strong>website</strong> (raymol.io) uses Google Analytics, only if you accept the cookie banner, to measure visits.</p>
+  <p class="lede">RayMol is a native molecular visualization app for macOS, iPad, and iPhone — real-time Metal rendering (cartoon, sticks, spheres, surfaces), hardware ray tracing, themes, measurements, movies, and PyMOL scripting. If something isn't working or you have a question, get in touch.</p>
 
-  <h2>What the app collects</h2>
-  <p>Nothing. The RayMol app has no user accounts, no sign-in, and includes no analytics, tracking, advertising, or crash-reporting. The app does not send your data anywhere.</p>
+  <h2>Get help</h2>
+  <div class="contact-card">
+    <p><strong>Email:</strong> <a href="mailto:support@raymol.io">support@raymol.io</a></p>
+    <p><strong>Report a bug or request a feature:</strong> <a href="https://github.com/javierbq/RayMol/issues">github.com/javierbq/RayMol/issues</a></p>
+  </div>
+  <p>When reporting a problem, it helps to include your device and OS version, the app version (shown in Settings), and the steps to reproduce the issue. We typically reply within a few business days.</p>
 
-  <h2>Your files stay on your device</h2>
-  <p>Molecular structures, sessions, images, and any other files you open, create, or save are processed locally on your Mac, iPad, or iPhone. They are never transmitted to us.</p>
-
-  <h2>Fetching structures from the Protein Data Bank</h2>
-  <p>If you use Raymol's "Fetch from PDB" feature, the app sends only the structure identifier you request (for example, a 4-character PDB ID) directly to the public <a href="https://www.rcsb.org/">RCSB Protein Data Bank</a> in order to download that publicly available structure. This request goes to the RCSB PDB, not to us, and is handled under the <a href="https://www.rcsb.org/pages/policies">RCSB PDB's own policies</a>. Raymol sends no personal information as part of this request.</p>
-
-  <h2>Website analytics (raymol.io)</h2>
-  <p>This website uses Google Analytics (GA4) to understand aggregate traffic — roughly how many people visit and which pages they view. Analytics runs <strong>only if you click "Accept"</strong> on the cookie banner; if you decline, no analytics scripts load and no analytics cookies are set. When enabled, Google may process data such as your approximate location (from IP address), device and browser type, and pages viewed, as described in <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>. This applies to the website only — the RayMol app itself still collects nothing.</p>
-
-  <h2>Children's privacy</h2>
-  <p>Because Raymol collects no personal data from anyone, it collects no personal data from children.</p>
-
-  <h2>Changes to this policy</h2>
-  <p>If this policy changes, the updated version will be posted on this page with a revised date above. Material changes will be reflected here before they take effect.</p>
+  <h2>Common topics</h2>
+  <ul>
+    <li><strong>Opening structures:</strong> use <strong>Open File</strong> for local <code>.pdb</code>, <code>.cif</code>, <code>.pse</code> and related formats, or <strong>Fetch from PDB</strong> to download a structure by its 4-letter PDB ID.</li>
+    <li><strong>Drive RayMol with Claude (macOS):</strong> RayMol has a built-in MCP server, so you can control it from your own Claude — either Claude Code or the Claude desktop app. It's off by default; turn it on under the <strong>Connect</strong> menu, then choose <strong>Connect an AI app…</strong> to link Claude. No API key is required — it uses your existing Claude. The server is local-only (127.0.0.1), token-protected, and asks you to approve each connection before it can drive the app.</li>
+    <li><strong>Privacy:</strong> RayMol collects no personal data — see the <a href="/privacy">Privacy Policy</a>.</li>
+  </ul>
 
   <h2>Contact</h2>
-  <p>Questions about this policy? Email <a href="mailto:privacy@raymol.io">privacy@raymol.io</a>.</p>
+  <p>For anything not covered above, email <a href="mailto:support@raymol.io">support@raymol.io</a> and we'll get back to you.</p>
 </article>
 </main>
 
@@ -100,7 +98,7 @@ html,body{overflow-x:hidden;max-width:100%}
   </div>
   <div class="credit">
     Raymol is built on the open-source PyMOL molecular visualization system. PyMOL is a trademark of Schrödinger, LLC.<br>
-    © 2026 Raymol · <a href="/privacy">Privacy</a> · <a href="/support">Support</a> · <a href="mailto:support@raymol.io">Contact</a>
+    © 2026 Raymol · <a href="/privacy">Privacy</a> · <a href="mailto:support@raymol.io">Contact</a>
   </div>
 </div></footer>
 
