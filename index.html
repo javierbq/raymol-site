@@ -93,14 +93,18 @@ html,body{overflow-x:hidden;max-width:100%}
   <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0%" stop-color="#F0185C"/><stop offset="52%" stop-color="#F2542D"/><stop offset="100%" stop-color="#F9A825"/>
   </linearGradient>
-  <g id="porb">
-    <path d="M100 100 C 78 72 78 30 100 14 C 122 30 122 72 100 100 Z" fill="#fff" fill-opacity=".26" stroke="#fff" stroke-opacity=".88" stroke-width="2.5"/>
-    <path d="M100 100 C 78 128 78 170 100 186 C 122 170 122 128 100 100 Z" fill="#fff" fill-opacity=".26" stroke="#fff" stroke-opacity=".88" stroke-width="2.5"/>
-  </g>
-  <symbol id="logo" viewBox="0 0 200 200">
-    <rect width="200" height="200" rx="45" fill="url(#tile)"/>
-    <use href="#porb" transform="rotate(0 100 100)"/><use href="#porb" transform="rotate(60 100 100)"/><use href="#porb" transform="rotate(120 100 100)"/>
-    <text x="100" y="146" text-anchor="middle" font-family="-apple-system,Arial" font-weight="800" font-size="140" fill="#fff" stroke="#5A0A24" stroke-width="5">R</text>
+  <symbol id="logo" viewBox="0 0 1024 1024">
+    <rect width="1024" height="1024" fill="url(#tile)"/>
+    <g opacity=".3" fill="#fff" stroke="#fff" stroke-width="12.8" stroke-miterlimit="20.48">
+      <path d="M512,511.109375c-112.6400146-143.3599854-112.6400146-358.3999939,0-440.3199768C624.6400146,152.7093811,624.6400146,367.7493896,512,511.109375z"/>
+      <path d="M512,511.109375c-112.6400146,143.3599854-112.6400146,358.4000244,0,440.3200073C624.6400146,869.5093994,624.6400146,654.4693604,512,511.109375z"/>
+      <path d="M511.9999695,511.109375C579.833374,341.880249,766.0634766,234.36026,893.3282471,290.9493713C878.7034302,429.4584656,692.4733276,536.9784546,511.9999695,511.109375z"/>
+      <path d="M511.9999695,511.109375c-180.4734192-25.8691101-366.7035217,81.6508789-381.3283081,220.1599731C257.9364624,787.8584595,444.1665649,680.3384399,511.9999695,511.109375z"/>
+      <path d="M512,511.109375c180.4734497-25.8691101,366.7035522,81.6508789,381.3283081,220.1599731C766.0635376,787.8584595,579.8334351,680.338501,512,511.109375z"/>
+      <path d="M512,511.109375c-67.833374-169.2290955-254.0634766-276.7490845-381.3282776-220.1600037C145.296524,429.4584656,331.5266113,536.9784546,512,511.109375z"/>
+    </g>
+    <path d="M527.7246094,543.0107422h-117.659668v213.8603516H298.6948242V211.4912109h267.5102539c38.2304688,0.7397461,67.6464844,5.4287109,88.2441406,14.0600586c20.59375,8.637207,38.046875,21.3383789,52.3554688,38.1098633c11.8398438,13.8173828,21.2109375,29.1083984,28.1201172,45.8798828c6.9033203,16.7773438,10.3603516,35.8901367,10.3603516,57.3500977c0,25.8999023-6.5390625,51.3720703-19.6103516,76.4047852c-13.0771484,25.0385742-34.6591797,42.7353516-64.75,53.0952148c25.1601562,10.1171875,42.9775391,24.4838867,53.4648438,43.1049805c10.4814453,18.6269531,15.7255859,47.0537109,15.7255859,85.2851562v36.6298828c0,24.9169922,0.9824219,41.8095703,2.9589844,50.6904297c2.9609375,14.0595703,9.8632812,24.4199219,20.7207031,31.0791016v13.6904297H628.3652344c-3.4570312-12.0830078-5.9199219-21.8300781-7.4003906-29.2304688c-2.9599609-15.2910156-4.5673828-30.9521484-4.8105469-46.9892578l-0.7402344-50.6904297c-0.4960938-34.7802734-6.84375-57.9628906-19.0546875-69.5595703C584.1503906,548.8095703,561.2675781,543.0107422,527.7246094,543.0107422z M596.9140625,443.8510742c22.6914062-10.3598633,34.0410156-30.831543,34.0410156-61.4199219c0-33.0512695-10.9785156-55.2514648-32.9296875-66.6000977c-12.3378906-6.4111328-30.8378906-9.6201172-55.5-9.6201172H410.0649414V452.730957h129.1303711C564.8457031,452.730957,584.0859375,449.7709961,596.9140625,443.8510742z" fill="none" stroke="#fff" stroke-width="34" stroke-linejoin="round" stroke-opacity=".92"/>
+    <path d="M527.7246094,543.0107422h-117.659668v213.8603516H298.6948242V211.4912109h267.5102539c38.2304688,0.7397461,67.6464844,5.4287109,88.2441406,14.0600586c20.59375,8.637207,38.046875,21.3383789,52.3554688,38.1098633c11.8398438,13.8173828,21.2109375,29.1083984,28.1201172,45.8798828c6.9033203,16.7773438,10.3603516,35.8901367,10.3603516,57.3500977c0,25.8999023-6.5390625,51.3720703-19.6103516,76.4047852c-13.0771484,25.0385742-34.6591797,42.7353516-64.75,53.0952148c25.1601562,10.1171875,42.9775391,24.4838867,53.4648438,43.1049805c10.4814453,18.6269531,15.7255859,47.0537109,15.7255859,85.2851562v36.6298828c0,24.9169922,0.9824219,41.8095703,2.9589844,50.6904297c2.9609375,14.0595703,9.8632812,24.4199219,20.7207031,31.0791016v13.6904297H628.3652344c-3.4570312-12.0830078-5.9199219-21.8300781-7.4003906-29.2304688c-2.9599609-15.2910156-4.5673828-30.9521484-4.8105469-46.9892578l-0.7402344-50.6904297c-0.4960938-34.7802734-6.84375-57.9628906-19.0546875-69.5595703C584.1503906,548.8095703,561.2675781,543.0107422,527.7246094,543.0107422z M596.9140625,443.8510742c22.6914062-10.3598633,34.0410156-30.831543,34.0410156-61.4199219c0-33.0512695-10.9785156-55.2514648-32.9296875-66.6000977c-12.3378906-6.4111328-30.8378906-9.6201172-55.5-9.6201172H410.0649414V452.730957h129.1303711C564.8457031,452.730957,584.0859375,449.7709961,596.9140625,443.8510742z" fill="#fff" stroke="#5A0A24" stroke-width="16" stroke-linejoin="round" paint-order="stroke"/>
   </symbol>
 </defs></svg>
 
@@ -124,7 +128,7 @@ html,body{overflow-x:hidden;max-width:100%}
   <p class="lead">Raymol is a Metal-based build of PyMOL for Mac, iPad, and iPhone — a modern, native interface with real-time rendering, on the open-source engine you already know.</p>
   <div class="cta-dl" style="margin-top:30px">
     <a class="btn btn-primary" style="padding:15px 32px;font-size:17px;text-decoration:none;display:inline-block" href="https://github.com/javierbq/RayMol/releases/latest/download/RayMol.dmg">Download for Mac</a>
-    <a class="btn" style="padding:15px 32px;font-size:17px;text-decoration:none;display:inline-block;margin-left:12px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:10px;color:#fff" href="https://raymol-slack-invite-production.up.railway.app">Join Community →</a>
+    <a class="btn" style="padding:15px 32px;font-size:17px;text-decoration:none;display:inline-block;margin-left:12px;background:#fff;border:1.5px solid var(--line);border-radius:999px;color:var(--ink)" href="https://raymol-slack-invite-production.up.railway.app">Join Community →</a>
     <div class="soon-note" style="margin-top:14px">Notarized <strong>.dmg</strong> · 59 MB · auto-updating · also coming soon to the Mac App Store &amp; the iOS App Store</div>
   </div>
   <div class="freenote">Free · macOS 13+ · iPadOS &amp; iOS 16+ · Apple Silicon</div>
@@ -373,6 +377,18 @@ html,body{overflow-x:hidden;max-width:100%}
     <details class="qa"><summary>What do I need to use Raymond, the AI copilot?</summary><p>Raymond is an experimental feature. It uses Claude; you supply your own Anthropic API key or Google Vertex AI credentials, stored securely in your device Keychain. There is no bundled AI subscription.</p></details>
     -->
     <details class="qa"><summary>What hardware do I need for ray tracing?</summary><p>Raymol delivers fast rasterized rendering with shadows, ambient occlusion, and MSAA on every supported device. Real-time ray tracing is available on supported Apple Silicon.</p></details>
+  </div>
+</section>
+
+<!-- SUPPORTED BY -->
+<section id="supporters" class="wrap" style="padding-top:64px;padding-bottom:64px">
+  <div class="reveal" style="text-align:center">
+    <div class="kicker" style="font-size:18px">Sponsored by</div>
+    <div class="supporters">
+      <a class="supporter" href="https://openfold.io" target="_blank" rel="noopener" aria-label="OpenFold Consortium">
+        <img src="assets/sponsors/openfold.svg" alt="OpenFold" width="180" height="44" loading="lazy">
+      </a>
+    </div>
   </div>
 </section>
 
