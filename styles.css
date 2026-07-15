@@ -27,6 +27,24 @@
   .store-badge{display:inline-block}
   .store-badge img{height:54px;width:auto;display:block}
   .store-badge.soon{opacity:.45;pointer-events:none}
+
+  /* DOWNLOAD / INSTALL CHANNELS */
+  .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .dl-card{min-width:0;border:1px solid var(--line);border-radius:16px;padding:26px 24px;background:#fff;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+  .dl-card h3{font-size:18px;margin:0}
+  .dl-card>p{font-size:14px;color:var(--muted);margin:0;flex:1 0 auto;min-height:40px}
+  .mcp-badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.03em;padding:4px 11px;border-radius:999px;color:#C21D4B;background:rgba(240,24,92,.08);border:1px solid rgba(240,24,92,.22)}
+  .dl-card .store-badge{margin-top:4px}
+  .dl-card .store-badge img{height:52px}
+  .dl-card .btn{margin-top:4px}
+  .brew{display:flex;align-items:stretch;gap:8px;width:100%;margin-top:4px}
+  .brew code{flex:1 1 auto;min-width:0;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--ink);overflow-x:auto;white-space:nowrap}
+  .brew-copy{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:10px;padding:0 14px;font-size:13px;font-weight:600;cursor:pointer;color:var(--ink);transition:color .15s,border-color .15s}
+  .brew-copy:hover{border-color:var(--coral);color:var(--coral)}
+  .brew-copy.copied{border-color:#157347;color:#157347}
+  .dl-note{max-width:720px;margin:30px auto 0;text-align:center;font-size:14.5px;color:var(--muted);line-height:1.65}
+  .dl-note b{color:var(--ink)}
+  @media(max-width:880px){.dl-grid{grid-template-columns:1fr}.dl-card>p{min-height:0}}
   .cta-soon{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:30px}
   .cta-soon .cta-row{margin-top:0}
   .soon-pill{display:inline-block;padding:8px 18px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.03em;background:linear-gradient(110deg,#F0185C,#F2542D);color:#fff;box-shadow:0 8px 24px rgba(240,24,92,.25)}
