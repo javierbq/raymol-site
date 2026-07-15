@@ -94,10 +94,35 @@ function initHeroCarousel(){
   restart();
 }
 
+function initDownload(){
+  const btn = document.querySelector('.brew-copy');
+  const code = document.getElementById('brew-cmd');
+  if(!btn || !code) return;
+  let reset = null;
+  btn.addEventListener('click', async () => {
+    const text = code.textContent.trim();
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch(e) {
+      const range = document.createRange();
+      range.selectNodeContents(code);
+      const sel = getSelection();
+      sel.removeAllRanges(); sel.addRange(range);
+      try { document.execCommand('copy'); } catch(_) {}
+      sel.removeAllRanges();
+    }
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    clearTimeout(reset);
+    reset = setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initHeroCarousel();
   initCompare();
   initCarousel();
   initReveal();
+  initDownload();
 });
