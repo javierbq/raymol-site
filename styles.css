@@ -49,6 +49,8 @@
   .cta-soon .cta-row{margin-top:0}
   .soon-pill{display:inline-block;padding:8px 18px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.03em;background:linear-gradient(110deg,#F0185C,#F2542D);color:#fff;box-shadow:0 8px 24px rgba(240,24,92,.25)}
   .soon-note{font-size:13px;color:#8a93a0}
+  .other-install{color:var(--coral);font-weight:600}
+  .other-install:hover{text-decoration:underline}
 
   .supporters{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:44px;margin-top:30px}
   .supporter{display:inline-flex;align-items:center;transition:transform .25s ease}
