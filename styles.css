@@ -204,7 +204,7 @@
 
   .final{text-align:center;background:var(--bg2);border-top:1px solid var(--line)}
   .final h2{font-size:44px;font-weight:800}
-  .final .grad-tile{display:inline-block;margin:0 auto 24px;width:84px;height:84px;border-radius:20px;background:var(--grad);box-shadow:0 16px 40px rgba(240,24,92,.3)}
+  .final .grad-tile{display:inline-block;margin:0 auto 24px;width:84px;height:84px;filter:drop-shadow(0 12px 26px rgba(240,24,92,.28))}
 
   footer{background:#0a0b0f;color:#9aa3b0;font-size:13px;padding:54px 0}
   footer .cols{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
