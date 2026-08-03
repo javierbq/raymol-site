@@ -2,7 +2,7 @@ RayMol is molecular visualization built for Apple Silicon — a Metal-based buil
 
 This channel covers feature demos, tutorials, and tips for visualizing proteins, ligands, and complexes — from publication figures to exploring a structure on your iPad.
 
-Free. Coming soon to the App Store.
+Free on the App Store — iPhone, iPad, and Mac.
 🔗 raymol.io
 
 ---

@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add('js')</script>
 <title>Raymol — Molecular visualization, native on Apple Silicon</title>
-<meta name="description" content="Raymol is a Metal-based build of the open-source PyMOL engine for Mac, iPad, and iPhone — a modern, native interface with real-time rendering. Free on the Mac App Store, direct download, or Homebrew.">
+<meta name="description" content="Raymol is a Metal-based build of the open-source PyMOL engine for Mac, iPad, and iPhone — a modern, native interface with real-time rendering. Free on the App Store.">
 <link rel="canonical" href="https://raymol.io/">
 <meta name="theme-color" content="#F2542D">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://raymol.io/">
 <meta property="og:title" content="Raymol — Molecular visualization, native on Apple Silicon">
-<meta property="og:description" content="A Metal-based build of the open-source PyMOL engine for Mac, iPad, and iPhone, with a modern native interface and real-time rendering. Free.">
+<meta property="og:description" content="A Metal-based build of the open-source PyMOL engine for Mac, iPad, and iPhone, with a modern native interface and real-time rendering. Free on the App Store.">
 <meta property="og:image" content="https://raymol.io/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Raymol">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Raymol — Molecular visualization, native on Apple Silicon">
-<meta name="twitter:description" content="A Metal-based build of the open-source PyMOL engine for Mac, iPad, and iPhone, with real-time rendering. Free.">
+<meta name="twitter:description" content="A Metal-based build of the open-source PyMOL engine for Mac, iPad, and iPhone, with real-time rendering. Free on the App Store.">
 <meta name="twitter:image" content="https://raymol.io/assets/og-image.png">
 <meta name="robots" content="index, follow">
 
@@ -54,6 +54,7 @@
       "name": "Raymol",
       "operatingSystem": "macOS 13+, iOS 16+, iPadOS 16+",
       "applicationCategory": "ScientificApplication",
+      "softwareVersion": "1.8.0",
       "description": "Raymol is a Metal-based build of the open-source PyMOL engine for Mac, iPad, and iPhone — a modern, native interface with real-time rendering.",
       "offers": {
         "@type": "Offer",
@@ -61,7 +62,7 @@
         "priceCurrency": "USD"
       },
       "downloadUrl": "https://github.com/javierbq/RayMol/releases/latest/download/RayMol.dmg",
-      "installUrl": "https://apps.apple.com/us/app/raymol/id6781513038?mt=12",
+      "installUrl": "https://apps.apple.com/us/app/raymol/id6781513038",
       "author": {
         "@id": "https://raymol.io/#organization"
       }
@@ -120,13 +121,17 @@ html,body{overflow-x:hidden;max-width:100%}
 
 <!-- HERO -->
 <div class="hero wrap">
+  <div style="margin-bottom:20px"><a class="soon-pill launch-pill" href="https://apps.apple.com/us/app/raymol/id6781513038">New · Now on iPhone &amp; iPad →</a></div>
   <div class="kicker">Built on the open-source PyMOL engine</div>
   <h1>Molecular visualization,<br>built for Apple Silicon.</h1>
   <p class="lead">Raymol is a Metal-based build of PyMOL for Mac, iPad, and iPhone — a modern, native interface with real-time rendering, on the open-source engine you already know.</p>
-  <div class="cta-dl" style="margin-top:30px">
-    <a class="btn btn-primary" style="padding:15px 32px;font-size:17px;text-decoration:none;display:inline-block" href="https://github.com/javierbq/RayMol/releases/latest/download/RayMol.dmg" download aria-label="Get Raymol for Mac — download the .dmg (59 MB)">Get Raymol</a>
-    <a class="btn" style="padding:15px 32px;font-size:17px;text-decoration:none;display:inline-block;margin-left:12px;background:#fff;border:1.5px solid var(--line);border-radius:999px;color:var(--ink)" href="https://raymol-slack-invite-production.up.railway.app">Join Community →</a>
-    <div class="soon-note" style="margin-top:14px"><a class="other-install" href="#download">Other installation methods →</a> · also coming soon to iPhone &amp; iPad</div>
+  <div class="cta-dl">
+    <a class="btn btn-primary" style="padding:15px 32px;font-size:17px;text-decoration:none" href="https://github.com/javierbq/RayMol/releases/latest/download/RayMol.dmg" download aria-label="Get Raymol for Mac — download the .dmg (59 MB)">Get Raymol</a>
+    <a class="store-badge" href="https://apps.apple.com/us/app/raymol/id6781513038" aria-label="Download Raymol for iPhone and iPad on the App Store">
+      <img src="assets/badges/app-store.svg" alt="Download on the App Store" width="180" height="60">
+    </a>
+    <a class="btn" style="padding:15px 32px;font-size:17px;text-decoration:none;background:#fff;border:1.5px solid var(--line);border-radius:999px;color:var(--ink)" href="https://raymol-slack-invite-production.up.railway.app">Join Community →</a>
+    <div class="soon-note"><a class="other-install" href="#download">Other installation methods →</a></div>
   </div>
   <div class="freenote">Free · macOS 13+ · iPadOS &amp; iOS 16+ · Apple Silicon</div>
 
@@ -158,10 +163,13 @@ html,body{overflow-x:hidden;max-width:100%}
 <!-- DOWNLOAD / INSTALL CHANNELS -->
 <section id="download" class="wrap" style="padding-top:72px;padding-bottom:40px">
   <div style="text-align:center;max-width:680px;margin:0 auto">
-    <div class="kicker">Get Raymol for Mac</div>
-    <h2 style="font-size:34px;font-weight:800;margin-top:10px">Three ways to install.</h2>
-    <p style="color:var(--muted);font-size:17px;margin-top:14px">Pick whichever fits your workflow — it's the same free app either way.</p>
+    <div class="kicker">Download</div>
+    <h2 style="font-size:34px;font-weight:800;margin-top:10px">Get Raymol, free.</h2>
+    <p style="color:var(--muted);font-size:17px;margin-top:14px">Three ways to install on Mac, one tap on iPhone and iPad — the same app and the same engine on every screen.</p>
   </div>
+
+  <div class="dl-group">
+  <div class="kicker">For Mac</div>
   <div class="dl-grid reveal">
     <div class="dl-card">
       <h3>Mac App Store</h3>
@@ -190,7 +198,23 @@ html,body{overflow-x:hidden;max-width:100%}
   <div class="reqs" style="margin-top:22px">
     <span>🆓 <b>Free</b></span>
     <span>💻 <b>macOS 13+</b> · Apple Silicon</span>
-    <span>📱 <b>iPhone &amp; iPad</b> — coming soon to the App Store</span>
+  </div>
+  </div>
+
+  <div class="dl-group">
+  <div class="kicker">For iPhone &amp; iPad</div>
+  <div class="dl-card dl-single reveal">
+    <h3>App Store</h3>
+    <p>One universal app for iPhone and iPad — install and update through the App Store.</p>
+    <a class="store-badge" href="https://apps.apple.com/us/app/raymol/id6781513038" aria-label="Download Raymol for iPhone and iPad on the App Store">
+      <img src="assets/badges/app-store.svg" alt="Download on the App Store" width="180" height="60">
+    </a>
+  </div>
+  <div class="reqs" style="margin-top:22px">
+    <span>🆓 <b>Free</b></span>
+    <span>📲 <b>iPhone</b> — iOS 16+</span>
+    <span>📱 <b>iPad</b> — iPadOS 16+</span>
+  </div>
   </div>
 </section>
 
@@ -352,7 +376,7 @@ html,body{overflow-x:hidden;max-width:100%}
     <div class="kicker">Connect your AI</div>
     <h2 style="font-size:34px;font-weight:800;margin-top:10px">Let Claude drive Raymol.</h2>
     <p style="color:var(--muted);font-size:17px;margin-top:14px">Raymol ships a built-in <b style="color:var(--ink)">MCP server</b>, so the <b style="color:var(--ink)">Claude desktop app</b> and <b style="color:var(--ink)">Claude Code</b> can drive it directly — fetch structures, run commands, change representations, and capture the viewport through real tool use. Open <b style="color:var(--ink)">Connect ▸ Connect an AI app…</b> and set it up in one click. No API key needed — it uses the Claude you already have.</p>
-    <p class="soon-note" style="margin-top:12px;font-size:13.5px">Available in the direct-download and Homebrew builds — the Mac App Store build doesn't include the MCP server, which App Store sandboxing doesn't allow.</p>
+    <p class="soon-note" style="margin-top:12px;font-size:13.5px">Available in the Mac direct-download and Homebrew builds. The App Store builds — Mac, iPhone, and iPad — don't include the MCP server, which App Store sandboxing doesn't allow.</p>
   </div>
   <div class="reveal" style="display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:flex-start;max-width:880px;margin:32px auto 0">
     <figure style="margin:0;flex:1 1 320px;max-width:410px;text-align:center">
@@ -365,7 +389,7 @@ html,body{overflow-x:hidden;max-width:100%}
     </figure>
   </div>
   <div class="reqs" style="margin-top:30px">
-    <span>🖥️ <b>Direct-download &amp; Homebrew builds</b></span>
+    <span>🖥️ <b>Mac direct-download &amp; Homebrew</b></span>
     <span>🔌 <b>Off by default</b></span>
     <span>🔒 <b>Local-only</b> · 127.0.0.1</span>
     <span>🔑 <b>Token-protected</b></span>
@@ -408,10 +432,10 @@ html,body{overflow-x:hidden;max-width:100%}
 <section id="faq" class="wrap" style="background:var(--bg2)">
   <div style="text-align:center"><div class="kicker">Questions</div><h2 style="font-size:34px;font-weight:800;margin-top:10px">Good to know</h2></div>
   <div class="faq">
-    <details class="qa"><summary>Is Raymol really free?</summary><p>Yes. Raymol is free on the Mac App Store, as a direct download, and via Homebrew on Mac. iPhone and iPad are coming soon to the App Store.</p></details>
+    <details class="qa"><summary>Is Raymol really free?</summary><p>Yes — free on every platform. On Mac: the Mac App Store, a direct download, or Homebrew. On iPhone and iPad: the App Store.</p></details>
     <details class="qa"><summary>Is the iPhone version a stripped-down companion?</summary><p>No. The iPhone app is the complete Raymol — same engine, same rendering, same full feature set as the Mac and iPad.</p></details>
     <details class="qa"><summary>Is it compatible with PyMOL?</summary><p>Raymol embeds the genuine open-source PyMOL engine, so your commands, settings, file formats, and .pse sessions work as expected.</p></details>
-    <details class="qa"><summary>What's the difference between the App Store and direct-download versions?</summary><p>They're the same app. The direct-download and Homebrew builds also include the built-in MCP server, so Claude can drive Raymol. The Mac App Store build leaves that out because App Store sandboxing doesn't permit it — the engine, rendering, and every other feature are identical.</p></details>
+    <details class="qa"><summary>What's the difference between the App Store and direct-download versions?</summary><p>They're the same app. The Mac direct-download and Homebrew builds also include the built-in MCP server, so Claude can drive Raymol. The App Store builds — Mac, iPhone, and iPad — leave that out because App Store sandboxing doesn't permit it. The engine, rendering, and every other feature are identical.</p></details>
     <!-- Raymond FAQ hidden while the Raymond section is disabled
     <details class="qa"><summary>What do I need to use Raymond, the AI copilot?</summary><p>Raymond is an experimental feature. It uses Claude; you supply your own Anthropic API key or Google Vertex AI credentials, stored securely in your device Keychain. There is no bundled AI subscription.</p></details>
     -->
@@ -435,10 +459,13 @@ html,body{overflow-x:hidden;max-width:100%}
 <section class="final"><div class="wrap reveal">
   <img class="grad-tile" src="assets/raymol-app-icon.png?v=2" alt="Raymol app icon" width="84" height="84" decoding="async">
   <h2>Free on Mac, iPad, and iPhone.</h2>
-  <p style="color:var(--muted);font-size:18px;margin-top:12px">Built on the open-source PyMOL engine. On the Mac App Store, as a direct download, or via Homebrew — coming soon to iPhone &amp; iPad.</p>
-  <div class="cta-dl" style="margin-top:30px">
-    <a class="btn btn-primary" style="padding:15px 32px;font-size:17px;text-decoration:none;display:inline-block" href="https://github.com/javierbq/RayMol/releases/latest/download/RayMol.dmg" download aria-label="Get Raymol for Mac — download the .dmg (59 MB)">Get Raymol</a>
-    <div class="soon-note" style="margin-top:14px"><a class="other-install" href="#download">Other installation methods →</a> · Free · macOS 13+ · Apple Silicon</div>
+  <p style="color:var(--muted);font-size:18px;margin-top:12px">Built on the open-source PyMOL engine. On the Mac App Store, as a direct download, or via Homebrew — and on the App Store for iPhone &amp; iPad.</p>
+  <div class="cta-dl">
+    <a class="btn btn-primary" style="padding:15px 32px;font-size:17px;text-decoration:none" href="https://github.com/javierbq/RayMol/releases/latest/download/RayMol.dmg" download aria-label="Get Raymol for Mac — download the .dmg (59 MB)">Get Raymol</a>
+    <a class="store-badge" href="https://apps.apple.com/us/app/raymol/id6781513038" aria-label="Download Raymol for iPhone and iPad on the App Store">
+      <img src="assets/badges/app-store.svg" alt="Download on the App Store" width="180" height="60">
+    </a>
+    <div class="soon-note"><a class="other-install" href="#download">Other installation methods →</a> · Free · macOS 13+ · iOS &amp; iPadOS 16+</div>
   </div>
 </div></section>
 
