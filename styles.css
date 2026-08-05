@@ -104,7 +104,9 @@
   /* .wrap clears an 80px corner only at >=1224px: it is border-box, so above
      1120px the CTA's right edge sits at (vw-1120)/2 + 28 from the viewport edge. */
   @media(max-width:1223px){nav .wrap{padding-right:108px}}
-  @media(max-width:820px){.github-corner{display:none}nav .wrap{padding-right:28px}}
+  /* 960, not the nav's own 820: the nav's one-line content is 800px, so it can only
+     afford the 108px reservation above ~936px. Hiding at 820 wraps every link. */
+  @media(max-width:960px){.github-corner{display:none}nav .wrap{padding-right:28px}}
   @media(prefers-reduced-motion:reduce){.github-corner .octo-arm{animation:none!important}}
 
   .hero{padding:72px 0 40px;text-align:center}
