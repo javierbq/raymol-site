@@ -46,6 +46,41 @@ carries ~316 px of content (brand ≈ 110, hamburger 40, CTA ≈ 110, plus 56 of
 adding an 80 px reservation overflows the viewport. Hence the corner is hidden on narrow
 screens instead.
 
+### Where the reservation stops being affordable — measured, not assumed
+
+The first implementation attempt hid the corner at ≤820 px, matching the nav's existing
+mobile breakpoint. Browser measurement of `index.html` showed that is too low. The nav's
+one-line content is:
+
+| Part | Width |
+| --- | --- |
+| `.brand` | 107 px |
+| `nav .links` (7 links, one line) | 584 px |
+| "Get Raymol" CTA | 109 px |
+| **Total** | **800 px** |
+
+So the viewport width below which the links wrap onto two lines is `800 + left + right`
+padding:
+
+| Right padding | Links wrap below |
+| --- | --- |
+| 28 px (untouched baseline) | 856 px |
+| 108 px (with the reservation) | 936 px |
+
+At 820 px the reservation therefore broke the nav across the whole 856–936 px band — all
+seven links at 42 px tall inside a 61 px bar. **The corner hides at ≤960 px**, not 820 px,
+which is where the nav can actually afford the reservation. 960 rather than the bare 936
+leaves ~25 px of headroom: 936 is a measurement taken with SF Pro Display, and a client
+falling back to Helvetica or Arial shifts the link widths.
+
+Below 960 px the corner is gone and the nav reverts to its untouched 28 px padding, so its
+behavior there is exactly what it was before this change.
+
+**Not fixed here:** the 821–856 px band wrapped the nav links *before* this change too —
+the mobile breakpoint at 820 px collapses the links later than their intrinsic width
+requires. That is a pre-existing site bug, independent of the corner, and is tracked
+separately rather than widened into this change.
+
 ## Decisions
 
 Each was presented and approved:
@@ -63,8 +98,9 @@ Each was presented and approved:
    the arm and tail to mush.
 5. **The three nav pages only.** `404.html` and `community.html` are bare redirect stubs
    with no nav; a floating corner there has nothing to belong to.
-6. **Hidden at ≤820 px**, matching the existing nav breakpoint where links collapse to a
-   hamburger. Footer GitHub links remain the mobile path.
+6. **Hidden at ≤960 px** — the width below which the nav cannot afford the 108 px
+   reservation without wrapping its links, derived by measurement above. Footer GitHub
+   links remain the path on narrower screens.
 
 ### Rejected
 
@@ -126,7 +162,7 @@ regardless of order.
   20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
 
 @media(max-width:1223px){nav .wrap{padding-right:108px}}
-@media(max-width:820px){.github-corner{display:none}nav .wrap{padding-right:28px}}
+@media(max-width:960px){.github-corner{display:none}nav .wrap{padding-right:28px}}
 @media(prefers-reduced-motion:reduce){.github-corner .octo-arm{animation:none!important}}
 ```
 
@@ -160,11 +196,13 @@ The repo is a static site with no test harness, so verification is a visual and 
 pass, performed and reported rather than assumed:
 
 1. Corner renders on all three pages; `404.html` and `community.html` unchanged.
-2. No CTA overlap at 1400, 1224, 1223, 1000, 900, 821, 820, and 375 px. 1224/1223 and
-   821/820 are the boundary pairs the media queries turn on.
+2. No CTA overlap at 1400, 1224, 1223, 1000, 961, 960, 900, and 375 px. 1224/1223 and
+   961/960 are the boundary pairs the media queries turn on.
+2a. No nav link taller than one line (~21 px) at any of those widths. This is the check
+   that would have caught the 820 px error, so it is now part of the standard pass.
 3. Hover waves the arm; keyboard `Tab` reaches the link, waves it, and shows a focus ring
    inside the wedge rather than a clipped one.
-4. Corner absent below 820 px, with the nav's right padding back to 28 px.
+4. Corner absent below 960 px, with the nav's right padding back to 28 px.
 5. Octocat legible against the gradient — the reason the axis was rotated.
 6. `prefers-reduced-motion: reduce` suppresses the wave.
 7. No duplicate-id warnings; `#tile` gradients still render the nav and footer logos.

@@ -16,7 +16,7 @@
 - Gradient id is exactly `gh-corner-grad`. All three pages already define `linearGradient id="tile"`; never reuse that id.
 - Gradient axis is exactly `x1="1" y1="0" x2="0" y2="1"` with stops gold `#F9A825` → coral `#F2542D` at 48% → rose `#F0185C`. This axis is the whole point of the design — the stock `0,0 → 1,1` axis puts the white octocat on gold at ~1.9:1 contrast. Do not "fix" it back to the logo's direction.
 - Corner size is exactly `80` × `80`.
-- Breakpoints are exactly `max-width:1223px` (reserve nav space) and `max-width:820px` (hide corner). 1223 is derived in the spec; it is **not** the 1176 px where `.wrap` stops growing.
+- Breakpoints are exactly `max-width:1223px` (reserve nav space) and `max-width:960px` (hide corner). Both are derived in the spec: 1223 is **not** the 1176 px where `.wrap` stops growing, and 960 is **not** the 820 px of the nav's existing mobile breakpoint. Using 820 here wraps every nav link onto two lines across 856–936 px.
 - Only `index.html`, `support.html`, `privacy.html` are touched. `404.html` and `community.html` are bare redirect stubs and must remain byte-identical.
 - Match the existing 2-space indentation in `styles.css`.
 
@@ -36,7 +36,9 @@ The snippet measures geometry rather than relying on eyeballing a screenshot:
   const out = {
     innerWidth: innerWidth,
     mq1223: matchMedia('(max-width:1223px)').matches,
-    mq820: matchMedia('(max-width:820px)').matches,
+    mq960: matchMedia('(max-width:960px)').matches,
+    navLinkMaxH: Math.max(0, ...[...document.querySelectorAll('nav .links a')]
+      .map(a => Math.round(a.getBoundingClientRect().height))),
     display: cs.display,
     position: cs.position,
     zIndex: cs.zIndex,
@@ -59,22 +61,28 @@ Two things about this snippet that matter:
 
 **It is deliberately strict.** `getBoundingClientRect()` on the corner returns the full 80×80 square, including the transparent lower-left half that the triangle does not paint. So `overlapPx: 0` means the CTA does not even reach the corner's bounding box, not merely that it avoids colored pixels. That is the standard we want — a CTA tucked under the invisible half of the wedge looks cramped even though nothing technically overlaps.
 
-**Judge behavior by `mq1223` / `mq820`, not `innerWidth`.** Depending on scrollbar handling, `innerWidth` can differ from the width media queries resolve against by ~15 px. Asserting against the `matchMedia` booleans makes the boundary checks reliable instead of flaky.
+**Judge behavior by `mq1223` / `mq960`, not `innerWidth`.** Depending on scrollbar handling, `innerWidth` can differ from the width media queries resolve against by ~15 px. Asserting against the `matchMedia` booleans makes the boundary checks reliable instead of flaky.
+
+**`navLinkMaxH` is not decoration.** The nav's one-line content is 800 px (brand 107 + links 584 + CTA 109), so the 108 px reservation is only affordable above 936 px. An earlier revision of this plan hid the corner at 820 px and broke every nav link onto two lines across 856–936 px — `overlapPx` stayed 0 the whole time, which is precisely why overlap alone is not a sufficient check. Any value above ~24 means links have wrapped and the reservation is stealing space the nav does not have.
 
 Expected values, all derived from `.wrap` being `max-width:1120px` with `border-box` sizing and `28px` padding:
 
-| Viewport | `mq1223` | `mq820` | `display` | `navPadRight` | `overlapPx` | `gapPx` |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1400 | false | false | `block` | `28px` | 0 | ~88 |
-| 1224 | false | false | `block` | `28px` | 0 | ~0 |
-| 1223 | true | false | `block` | `108px` | 0 | ~80 |
-| 1000 | true | false | `block` | `108px` | 0 | ~28 |
-| 900 | true | false | `block` | `108px` | 0 | ~28 |
-| 821 | true | false | `block` | `108px` | 0 | ~28 |
-| 820 | true | true | `none` | `28px` | n/a | — |
-| 375 | true | true | `none` | `28px` | n/a | — |
+| Viewport | `mq1223` | `mq960` | `display` | `navPadRight` | `overlapPx` | `gapPx` | `navLinkMaxH` |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1400 | false | false | `block` | `28px` | 0 | ~88 | ~21 |
+| 1224 | false | false | `block` | `28px` | 0 | ~0 | ~21 |
+| 1223 | true | false | `block` | `108px` | 0 | ~80 | ~21 |
+| 1000 | true | false | `block` | `108px` | 0 | ~28 | ~21 |
+| 961 | true | false | `block` | `108px` | 0 | ~28 | ~21 |
+| 960 | true | true | `none` | `28px` | n/a | — | ~21 |
+| 900 | true | true | `none` | `28px` | n/a | — | ~21 |
+| 375 | true | true | `none` | `28px` | n/a | — | 0 |
 
 `gapPx` at 1224 is the boundary case: the CTA's right edge and the corner's left edge coincide. Anything from `-1` to `1` passes; a negative number larger than that means the breakpoint is wrong.
+
+`navLinkMaxH` is 0 at 375 px only because the nav's own mobile breakpoint (820 px, pre-existing and untouched) hides the links behind the hamburger. At every width where links are visible it must stay near 21 — a 42 means they wrapped.
+
+961/960 is the pair that matters most now: at 961 the corner is visible with the reservation applied and the nav must still fit on one line; at 960 the corner is gone and the padding is released.
 
 ---
 
@@ -146,11 +154,13 @@ Insert after line 86 (the `}` closing the existing `@media(max-width:820px)` nav
   /* .wrap clears an 80px corner only at >=1224px: it is border-box, so above
      1120px the CTA's right edge sits at (vw-1120)/2 + 28 from the viewport edge. */
   @media(max-width:1223px){nav .wrap{padding-right:108px}}
-  @media(max-width:820px){.github-corner{display:none}nav .wrap{padding-right:28px}}
+  /* 960, not the nav's own 820: the nav's one-line content is 800px, so it can only
+     afford the 108px reservation above ~936px. Hiding at 820 wraps every link. */
+  @media(max-width:960px){.github-corner{display:none}nav .wrap{padding-right:28px}}
   @media(prefers-reduced-motion:reduce){.github-corner .octo-arm{animation:none!important}}
 ```
 
-**The order of those last three media queries is load-bearing.** The two `nav .wrap` rules have identical specificity, so the cascade decides: the `1223px` rule must come *before* the `820px` rule. Reverse them and at 375 px both queries match, the 1223 rule wins, and the nav keeps a 108 px reservation for a corner that is no longer rendered — which overflows the viewport on a phone.
+**The order of those last three media queries is load-bearing.** The two `nav .wrap` rules have identical specificity, so the cascade decides: the `1223px` rule must come *before* the `960px` rule. Reverse them and at 375 px both queries match, the 1223 rule wins, and the nav keeps a 108 px reservation for a corner that is no longer rendered — which overflows the viewport on a phone.
 
 - [ ] **Step 4: Add the markup to `index.html`**
 
@@ -191,9 +201,9 @@ If `gradFill` reports `none` or a bare color, the `.octo-bg` selector is not mat
 
 - [ ] **Step 6: Walk the eight boundary widths**
 
-For each of 1400, 1224, 1223, 1000, 900, 821, 820, 375 (px wide, 900 tall): `resize_window`, then run the snippet. Compare every row against the table in "Testing approach".
+For each of 1400, 1224, 1223, 1000, 961, 960, 900, 375 (px wide, 900 tall): `resize_window`, then run the snippet. Compare every row against the table in "Testing approach".
 
-The pairs that matter most are 1224/1223 and 821/820 — those are the breakpoints flipping. A failure at 1223 or 821 means the reservation is not applying; a non-`none` display at 820 means the hide rule is not applying.
+The pairs that matter most are 1224/1223 and 961/960 — those are the breakpoints flipping. A failure at 1223 or 961 means the reservation is not applying; a non-`none` display at 960 means the hide rule is not applying; a `navLinkMaxH` above ~24 at any width means the reservation is squeezing the nav.
 
 Record the actual eight-row output. Do not paraphrase it as "all widths pass."
 
@@ -235,9 +245,10 @@ of gold, where white only reaches ~1.9:1.
 
 The nav reserves 108px on its right below 1224px so the "Get Raymol" CTA never
 slides under the corner. 1224 is where .wrap actually clears an 80px corner --
-it is border-box, so the CTA's right edge sits at (vw-1120)/2 + 28. Below 820px
-the nav has no room to spare, so the corner is hidden and the reservation is
-released.
+it is border-box, so the CTA's right edge sits at (vw-1120)/2 + 28. Below 960px
+the nav has no room to spare -- its one-line content is 800px, so the 108px
+reservation only fits above ~936px -- and the corner is hidden with the
+reservation released.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
 MSG
@@ -318,10 +329,13 @@ Expected: each file reports `1`. The `md5sum` is informational — inspect the t
 
 - [ ] **Step 5: Run the assertion snippet on both new pages**
 
-Navigate to `http://localhost:8765/support.html`, resize to 1400 px, run the snippet from "Testing approach". Then 820 px. Repeat both for `privacy.html`.
+Navigate to `http://localhost:8765/support.html`, resize to 1400 px, run the snippet from "Testing approach". Then 961 px, then 960 px. Repeat all three for `privacy.html`.
 
-Expected at 1400: `display: "block"`, `overlapPx: 0`, `navPadRight: "28px"`.
-Expected at 820: `display: "none"`, `navPadRight: "28px"`.
+Expected at 1400: `display: "block"`, `overlapPx: 0`, `navPadRight: "28px"`, `navLinkMaxH` ~21.
+Expected at 961: `display: "block"`, `overlapPx: 0`, `navPadRight: "108px"`, `navLinkMaxH` ~21.
+Expected at 960: `display: "none"`, `navPadRight: "28px"`, `navLinkMaxH` ~21.
+
+`support.html` and `privacy.html` carry 6 nav links to the homepage's 7 — both omit "Community" (74 px plus one 26 px gap, so ~484 px of links against the homepage's 584 px). Their one-line nav need is therefore ~700 px, clearing the 960 px breakpoint with room to spare. These two pages are the *easier* case; the homepage sets the binding constraint. Measure anyway rather than reasoning from the homepage's numbers.
 
 - [ ] **Step 6: Confirm the redirect stubs were not touched**
 
@@ -441,7 +455,8 @@ Stop the backgrounded `python3 -m http.server` (via `TaskStop` on the background
 | `outline-offset:-6px` focus fix | 1 Step 3, verified 1 Step 7 |
 | Reduced-motion suppression | 1 Step 3, verified 1 Step 7 |
 | 1224 px nav reservation | 1 Step 3, verified 1 Step 6 |
-| Hidden ≤820 px, padding released | 1 Step 3, verified 1 Step 6 |
+| Hidden ≤960 px, padding released | 1 Step 3, verified 1 Step 6 |
+| Nav links never wrap at any width | verified 1 Step 6 via `navLinkMaxH` |
 | Stock touch-device wave block omitted | Not written — omission needs no task |
 | `404.html` / `community.html` untouched | 2 Step 6 |
 | Footer copy fix | 3 |
