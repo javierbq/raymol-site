@@ -7,3 +7,6 @@
 
 # macOS / editor cruft
 .DS_Store
+
+# Brainstorming visual companion (local only)
+.superpowers/
