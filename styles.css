@@ -45,9 +45,16 @@
   .dl-note{max-width:720px;margin:30px auto 0;text-align:center;font-size:14.5px;color:var(--muted);line-height:1.65}
   .dl-note b{color:var(--ink)}
   @media(max-width:880px){.dl-grid{grid-template-columns:1fr}.dl-card>p{min-height:0}}
+  /* one labelled group per platform — the label reuses .kicker */
+  .dl-group{margin-top:44px}
+  .dl-group .kicker{text-align:center}
+  .dl-group .dl-grid{margin-top:18px}
+  .dl-single{max-width:520px;margin:18px auto 0}
   .cta-soon{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:30px}
   .cta-soon .cta-row{margin-top:0}
   .soon-pill{display:inline-block;padding:8px 18px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.03em;background:linear-gradient(110deg,#F0185C,#F2542D);color:#fff;box-shadow:0 8px 24px rgba(240,24,92,.25)}
+  .launch-pill{text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+  .launch-pill:hover,.launch-pill:focus-visible{transform:translateY(-2px);box-shadow:0 12px 30px rgba(240,24,92,.32)}
   .soon-note{font-size:13px;color:#8a93a0}
   .other-install{color:var(--coral);font-weight:600}
   .other-install:hover{text-decoration:underline}
@@ -82,6 +89,9 @@
   .hero h1{font-size:60px;font-weight:800;line-height:1.05;margin:18px 0 0}
   .hero p.lead{font-size:21px;color:var(--muted);max-width:680px;margin:18px auto 0}
   .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  /* like .cta-row, but centres store badges on the buttons' centre line */
+  .cta-dl{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .cta-dl .soon-note{flex:1 0 100%;text-align:center;margin-top:0}
   .freenote{margin-top:14px;font-size:13px;color:#8a93a0}
   .hero-shot{margin-top:54px}
   .theme-carousel{position:relative;aspect-ratio:2400/1600;border-radius:16px;overflow:hidden;border:1px solid #1c1f27;box-shadow:0 40px 90px rgba(11,13,18,.34);background:#0a0b0f}
