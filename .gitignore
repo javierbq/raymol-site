@@ -7,3 +7,7 @@
 
 # macOS / editor cruft
 .DS_Store
+
+# Local-only superpowers output: brainstorming visuals, implementation ledger,
+# task briefs, implementer reports, and review diffs.
+.superpowers/
