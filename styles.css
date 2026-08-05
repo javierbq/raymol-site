@@ -91,7 +91,7 @@
      docs/superpowers/specs/2026-08-05-github-corner-design.md */
   .github-corner{position:fixed;top:0;right:0;z-index:60;line-height:0}
   .github-corner svg{display:block;border:0;color:#fff}
-  .github-corner .octo-bg{fill:url(#gh-corner-grad)}
+  .github-corner .octo-bg{fill:url(#gh-corner-grad) #F2542D}
   .github-corner .octo-arm,.github-corner .octo-body{fill:currentColor}
   .github-corner .octo-arm{transform-origin:130px 106px}
   .github-corner:hover .octo-arm,

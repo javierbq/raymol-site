@@ -16,7 +16,7 @@
 - Gradient id is exactly `gh-corner-grad`. All three pages already define `linearGradient id="tile"`; never reuse that id.
 - Gradient axis is exactly `x1="1" y1="0" x2="0" y2="1"` with stops gold `#F9A825` → coral `#F2542D` at 48% → rose `#F0185C`. This axis is the whole point of the design — the stock `0,0 → 1,1` axis puts the white octocat on gold at ~1.9:1 contrast. Do not "fix" it back to the logo's direction.
 - Corner size is exactly `80` × `80`.
-- Breakpoints are exactly `max-width:1223px` (reserve nav space) and `max-width:960px` (hide corner). Both are derived in the spec: 1223 is **not** the 1176 px where `.wrap` stops growing, and 960 is **not** the 820 px of the nav's existing mobile breakpoint. Using 820 here wraps every nav link onto two lines across 856–936 px.
+- Breakpoints are exactly `max-width:1223px` (reserve nav space) and `max-width:960px` (hide corner). Both are derived in the spec: 1223 is **not** the 1176 px where `.wrap` stops growing, and 960 is **not** the 820 px of the nav's existing mobile breakpoint. Using 820 here wraps every nav link onto two lines across 860–940 px.
 - Only `index.html`, `support.html`, `privacy.html` are touched. `404.html` and `community.html` are bare redirect stubs and must remain byte-identical.
 - Match the existing 2-space indentation in `styles.css`.
 
@@ -63,7 +63,7 @@ Two things about this snippet that matter:
 
 **Judge behavior by `mq1223` / `mq960`, not `innerWidth`.** Depending on scrollbar handling, `innerWidth` can differ from the width media queries resolve against by ~15 px. Asserting against the `matchMedia` booleans makes the boundary checks reliable instead of flaky.
 
-**`navLinkMaxH` is not decoration.** The nav's one-line content is 800 px (brand 107 + links 584 + CTA 109), so the 108 px reservation is only affordable above 936 px. An earlier revision of this plan hid the corner at 820 px and broke every nav link onto two lines across 856–936 px — `overlapPx` stayed 0 the whole time, which is precisely why overlap alone is not a sufficient check. Any value above ~24 means links have wrapped and the reservation is stealing space the nav does not have.
+**`navLinkMaxH` is not decoration.** The nav's one-line content is 804 px (brand 107 + links 584 + CTA 113), so the 108 px reservation is only affordable above 940 px. An earlier revision of this plan hid the corner at 820 px and broke every nav link onto two lines across 860–940 px — `overlapPx` stayed 0 the whole time, which is precisely why overlap alone is not a sufficient check. Any value above ~24 means links have wrapped and the reservation is stealing space the nav does not have.
 
 Expected values, all derived from `.wrap` being `max-width:1120px` with `border-box` sizing and `28px` padding:
 
@@ -197,7 +197,7 @@ ariaLabel: "View the Raymol source on GitHub",
 gradFill: 'url("#gh-corner-grad")'
 ```
 
-If `gradFill` reports `none` or a bare color, the `.octo-bg` selector is not matching and the wedge will be invisible — fix before proceeding.
+`gradFill` returning `url("#gh-corner-grad")` confirms the `.octo-bg` selector matched; it does not confirm the gradient actually painted — `getComputedStyle(...).fill` returns the declared `url()` string whether or not the reference resolves. Only the visual screenshot step (Step 8) confirms the wedge actually paints. If `gradFill` reports `none` or a bare color, the selector is not matching at all — fix that before proceeding.
 
 - [ ] **Step 6: Walk the eight boundary widths**
 

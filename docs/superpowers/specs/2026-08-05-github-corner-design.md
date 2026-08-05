@@ -56,27 +56,28 @@ one-line content is:
 | --- | --- |
 | `.brand` | 107 px |
 | `nav .links` (7 links, one line) | 584 px |
-| "Get Raymol" CTA | 109 px |
-| **Total** | **800 px** |
+| "Get Raymol" CTA | 113 px |
+| **Total** | **804 px** |
 
-So the viewport width below which the links wrap onto two lines is `800 + left + right`
+So the viewport width below which the links wrap onto two lines is `804 + left + right`
 padding:
 
 | Right padding | Links wrap below |
 | --- | --- |
-| 28 px (untouched baseline) | 856 px |
-| 108 px (with the reservation) | 936 px |
+| 28 px (untouched baseline) | 860 px |
+| 108 px (with the reservation) | 940 px |
 
-At 820 px the reservation therefore broke the nav across the whole 856–936 px band — all
+At 820 px the reservation therefore broke the nav across the whole 860–940 px band — all
 seven links at 42 px tall inside a 61 px bar. **The corner hides at ≤960 px**, not 820 px,
-which is where the nav can actually afford the reservation. 960 rather than the bare 936
-leaves ~25 px of headroom: 936 is a measurement taken with SF Pro Display, and a client
-falling back to Helvetica or Arial shifts the link widths.
+which is where the nav can actually afford the reservation. The Apple system font is the
+widest case in the declared stack at 940px, and every declared fallback (Helvetica Neue,
+Arial, generic sans-serif) renders narrower (797–798 px), so 940 is the true binding
+threshold; 960 is rounded up from it for margin.
 
 Below 960 px the corner is gone and the nav reverts to its untouched 28 px padding, so its
 behavior there is exactly what it was before this change.
 
-**Not fixed here:** the 821–856 px band wrapped the nav links *before* this change too —
+**Not fixed here:** the 821–860 px band wrapped the nav links *before* this change too —
 the mobile breakpoint at 820 px collapses the links later than their intrinsic width
 requires. That is a pre-existing site bug, independent of the corner, and is tracked
 separately rather than widened into this change.
@@ -88,12 +89,16 @@ Each was presented and approved:
 1. **Fixed above the nav** (`z-index:60`), visible while scrolling — the standard
    behavior — with the nav reserving space below 1224 px so the CTA never slides under it.
 2. **Raymol gradient fill**, not the stock near-black `#151513` wedge.
-3. **Rotated gradient axis** — `x1="1" y1="0" x2="0" y2="1"`, gold → coral → rose. The
-   stock axis (`0,0 → 1,1`) puts the octocat on coral/gold, where white measures ~3.3:1
-   and ~1.9:1. Rotating pushes gold into the extreme corner, which the octocat barely
-   occupies, and seats the silhouette on rose-to-coral. A rejected third option kept the
-   stock axis and added a `#5A0A24` outline mirroring the logo's "R"; at 80 px the stroke
-   thickened the octocat's arm and tail.
+3. **Rotated gradient axis with compressed stops** — `x1="1" y1="0" x2="0" y2="1"`,
+   stops at 0 % gold / 24 % coral / 50 % rose. The stock axis (`0,0 → 1,1`) puts the
+   octocat on gold, where white measures ~1.97:1. Rotating pushes gold into the extreme
+   outer tip, which the octocat barely occupies, moving the silhouette toward coral
+   (2.73:1 at the head) — but that is still below the WCAG 1.4.11 non-text-contrast
+   threshold of 3:1. Compressing the stops so the 50 % rose end maps to the midpoint of
+   the wedge (the farthest t the triangle ever reaches) is what lifts the minimum contrast
+   to 3.54:1 across the silhouette. A rejected third option kept the stock axis and added
+   a `#5A0A24` outline mirroring the logo's "R"; at 80 px the stroke thickened the
+   octocat's arm and tail.
 4. **80 px**, the stock `github-corners` size — the recognizable one, and small sizes turn
    the arm and tail to mush.
 5. **The three nav pages only.** `404.html` and `community.html` are bare redirect stubs

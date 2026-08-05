@@ -8,5 +8,6 @@
 # macOS / editor cruft
 .DS_Store
 
-# Brainstorming visual companion (local only)
+# Local-only superpowers output: brainstorming visuals, implementation ledger,
+# task briefs, implementer reports, and review diffs.
 .superpowers/
