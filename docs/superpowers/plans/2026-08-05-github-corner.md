@@ -14,7 +14,7 @@
 
 - Repo URL is exactly `https://github.com/javierbq/RayMol` — that capitalization, matching the `sameAs` entry already in `index.html`'s JSON-LD. Do not use the lowercase `raymol` form the footers use.
 - Gradient id is exactly `gh-corner-grad`. All three pages already define `linearGradient id="tile"`; never reuse that id.
-- Gradient axis is exactly `x1="1" y1="0" x2="0" y2="1"` with stops gold `#F9A825` → coral `#F2542D` at 48% → rose `#F0185C`. This axis is the whole point of the design — the stock `0,0 → 1,1` axis puts the white octocat on gold at ~1.9:1 contrast. Do not "fix" it back to the logo's direction.
+- Gradient axis is exactly `x1="1" y1="0" x2="0" y2="1"` with stops gold `#F9A825` at 0% → coral `#F2542D` at 24% → rose `#F0185C` at 50%. The stops are compressed because the wedge only ever spans t ∈ [0, 0.5] of the axis, so uncompressed stops never reach rose and leave the octocat head at 2.73:1. This axis is the whole point of the design — the stock `0,0 → 1,1` axis puts the white octocat on gold at ~1.9:1 contrast. Do not "fix" it back to the logo's direction.
 - Corner size is exactly `80` × `80`.
 - Breakpoints are exactly `max-width:1223px` (reserve nav space) and `max-width:960px` (hide corner). Both are derived in the spec: 1223 is **not** the 1176 px where `.wrap` stops growing, and 960 is **not** the 820 px of the nav's existing mobile breakpoint. Using 820 here wraps every nav link onto two lines across 860–940 px.
 - Only `index.html`, `support.html`, `privacy.html` are touched. `404.html` and `community.html` are bare redirect stubs and must remain byte-identical.
@@ -141,7 +141,7 @@ Insert after line 86 (the `}` closing the existing `@media(max-width:820px)` nav
      docs/superpowers/specs/2026-08-05-github-corner-design.md */
   .github-corner{position:fixed;top:0;right:0;z-index:60;line-height:0}
   .github-corner svg{display:block;border:0;color:#fff}
-  .github-corner .octo-bg{fill:url(#gh-corner-grad)}
+  .github-corner .octo-bg{fill:url(#gh-corner-grad) #F2542D}
   .github-corner .octo-arm,.github-corner .octo-body{fill:currentColor}
   .github-corner .octo-arm{transform-origin:130px 106px}
   .github-corner:hover .octo-arm,
@@ -173,8 +173,8 @@ Insert after line 92 (`<a class="skip-link" ...>`) and before the blank line pre
   <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true" focusable="false">
     <defs><linearGradient id="gh-corner-grad" x1="1" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#F9A825"/>
-      <stop offset="48%" stop-color="#F2542D"/>
-      <stop offset="100%" stop-color="#F0185C"/>
+      <stop offset="24%" stop-color="#F2542D"/>
+      <stop offset="50%" stop-color="#F0185C"/>
     </linearGradient></defs>
     <path class="octo-bg" d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
     <path class="octo-arm" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"/>
@@ -285,8 +285,8 @@ After line 49, byte-identical to the block in Task 1 Step 4:
   <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true" focusable="false">
     <defs><linearGradient id="gh-corner-grad" x1="1" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#F9A825"/>
-      <stop offset="48%" stop-color="#F2542D"/>
-      <stop offset="100%" stop-color="#F0185C"/>
+      <stop offset="24%" stop-color="#F2542D"/>
+      <stop offset="50%" stop-color="#F0185C"/>
     </linearGradient></defs>
     <path class="octo-bg" d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
     <path class="octo-arm" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"/>
@@ -306,8 +306,8 @@ After line 47. Same markup, repeated here rather than referenced so you are not 
   <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true" focusable="false">
     <defs><linearGradient id="gh-corner-grad" x1="1" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#F9A825"/>
-      <stop offset="48%" stop-color="#F2542D"/>
-      <stop offset="100%" stop-color="#F0185C"/>
+      <stop offset="24%" stop-color="#F2542D"/>
+      <stop offset="50%" stop-color="#F0185C"/>
     </linearGradient></defs>
     <path class="octo-bg" d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
     <path class="octo-arm" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"/>
