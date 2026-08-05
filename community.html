@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join the Raymol community — Raymol</title>
+<meta name="description" content="Join the Raymol community on Slack to ask questions, share structures, and get support.">
+<link rel="canonical" href="https://raymol.io/community">
+<meta name="theme-color" content="#F2542D">
+<!-- Redirect target, not a content page: no reason to index it. -->
+<meta name="robots" content="noindex,follow">
+
+<link rel="icon" type="image/png" href="assets/raymol-app-icon.png?v=2">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- Self-contained on purpose: no styles.css / analytics.js, so the redirect isn't
+     waiting on render-blocking requests. -->
+<style>
+  html,body{margin:0;height:100%}
+  body{display:flex;align-items:center;justify-content:center;padding:2rem;
+    background:linear-gradient(135deg,#0b0d12,#1a0a14);color:#fff;text-align:center;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;padding:2.5rem 2rem;max-width:420px}
+  .ico{width:56px;height:56px;border-radius:13px;display:block;margin:0 auto 1rem}
+  h1{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;margin:0 0 .35rem;
+    background:linear-gradient(110deg,#F0185C 0%,#F2542D 52%,#F9A825 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{color:rgba(255,255,255,.6);font-size:.95rem;margin:0 0 1.5rem}
+  .join{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;
+    padding:12px 24px;border-radius:999px;color:#fff;
+    background:linear-gradient(110deg,#F0185C,#F2542D);
+    box-shadow:0 8px 24px rgba(240,24,92,.28)}
+  .fine{color:rgba(255,255,255,.45);font-size:.8rem;margin:1.5rem 0 0}
+  .fine a{color:#F9A825}
+  a:focus-visible{outline:3px solid #F9A825;outline-offset:3px;border-radius:999px}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <img class="ico" src="assets/raymol-app-icon.png?v=2" alt="">
+  <h1>Raymol on Slack</h1>
+  <p class="lede">Taking you to the invite…</p>
+
+  <!-- ┌──────────────────────────────────────────────────────────────────────┐
+       │ ROTATE THIS LINK. Slack shared-invite links expire after 30 days     │
+       │ (and cap at 400 uses), so this href needs refreshing periodically.   │
+       │                                                                      │
+       │ To refresh: in Slack, click the workspace name → "Invite people to   │
+       │ Raymol" → Copy invite link. Replace the href below and push; GitHub  │
+       │ Pages redeploys on its own.                                          │
+       │                                                                      │
+       │ The URL lives here and nowhere else on the site — every "Community"  │
+       │ link across the site points at /community, so this is the only edit. │
+       └──────────────────────────────────────────────────────────────────────┘ -->
+  <a class="join" id="join"
+     href="https://join.slack.com/t/raymol/shared_invite/zt-4661undk0-44f~NI0lG2aMKWx_lNFOJA">Join Raymol on Slack →</a>
+
+  <!-- Fires as soon as the anchor above is parsed. replace() rather than assign()
+       so Back doesn't land on this page and bounce the user forward again. -->
+  <script>location.replace(document.getElementById('join').href)</script>
+
+  <p class="fine">Not redirected? Use the button above. If Slack says the invite
+    is no longer active, email <a href="mailto:support@raymol.io">support@raymol.io</a>
+    and we'll send a fresh one.</p>
+</div>
+
+</body>
+</html>
