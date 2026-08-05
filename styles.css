@@ -85,6 +85,28 @@
     nav .links a{padding:13px 28px}
   }
 
+  /* GITHUB CORNER — fixed wedge linking to the source repo.
+     Sits above the sticky nav (z-index 50) and reserves room in the nav so the
+     "Get Raymol" CTA never slides underneath it. See
+     docs/superpowers/specs/2026-08-05-github-corner-design.md */
+  .github-corner{position:fixed;top:0;right:0;z-index:60;line-height:0}
+  .github-corner svg{display:block;border:0;color:#fff}
+  .github-corner .octo-bg{fill:url(#gh-corner-grad)}
+  .github-corner .octo-arm,.github-corner .octo-body{fill:currentColor}
+  .github-corner .octo-arm{transform-origin:130px 106px}
+  .github-corner:hover .octo-arm,
+  .github-corner:focus-visible .octo-arm{animation:octocat-wave 560ms ease-in-out}
+  /* global a:focus-visible uses outline-offset:2px, which draws off-screen at the
+     viewport corner and gets clipped; pull it inside the wedge instead */
+  .github-corner:focus-visible{outline-offset:-6px}
+  @keyframes octocat-wave{0%,100%{transform:rotate(0)}
+    20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
+  /* .wrap clears an 80px corner only at >=1224px: it is border-box, so above
+     1120px the CTA's right edge sits at (vw-1120)/2 + 28 from the viewport edge. */
+  @media(max-width:1223px){nav .wrap{padding-right:108px}}
+  @media(max-width:820px){.github-corner{display:none}nav .wrap{padding-right:28px}}
+  @media(prefers-reduced-motion:reduce){.github-corner .octo-arm{animation:none!important}}
+
   .hero{padding:72px 0 40px;text-align:center}
   .hero h1{font-size:60px;font-weight:800;line-height:1.05;margin:18px 0 0}
   .hero p.lead{font-size:21px;color:var(--muted);max-width:680px;margin:18px auto 0}
