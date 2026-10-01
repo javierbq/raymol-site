@@ -1,7 +1,7 @@
 # Homepage reorganization: showcase first
 
 **Date:** 2026-10-01
-**Status:** Design approved in conversation; spec awaiting review
+**Status:** Implemented on `claude/site-1-12-0-materials` (PR #11)
 **Ships in:** PR #11 (`claude/site-1-12-0-materials`), together with the 1.12.0 Materials work
 
 ## Context
@@ -195,7 +195,10 @@ repo for now; deleting them is a separate cleanup.
 ## Verification
 
 1. Re-run the section-position measurement. Target at 1280×800: Design & Predict starts by
-   screen 6, Claude by screen 7, and the page is at most 12 screens.
+   screen 6, Claude by screen 7, and the page is at most 12 screens. **Measured after
+   implementation:** Design & Predict 6.3, Claude 7.7, page 13.2 screens (375×812: 9.5 / 11.9 /
+   20.6), down from 12.2 / 13.6 / 16. The targets were estimates; the owner accepted the
+   measured numbers on 2026-10-01 rather than tightening spacing or moving content.
 2. No horizontal scroll at 1280, 1224, 1223, 961, 960, 820, and 375 px.
 3. Nav links stay on one line at 1224/1223 and 961/960.
 4. Every anchor in the compatibility list resolves; every nav, bento, footer, and
