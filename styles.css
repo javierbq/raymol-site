@@ -139,6 +139,21 @@
   .trust .row{display:flex;align-items:center;justify-content:center;gap:42px;flex-wrap:wrap;color:#5b6470;font-size:14px;font-weight:500}
   .trust b{color:var(--ink)}
 
+  /* HIGHLIGHTS BENTO — four tiles under the hero, each a link down to its section */
+  .hl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .hl-tile{min-width:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;transition:transform .2s ease,box-shadow .2s ease}
+  .hl-tile:hover,.hl-tile:focus-visible{transform:translateY(-3px);box-shadow:0 14px 34px rgba(11,13,18,.14)}
+  .hl-tile img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--darkpanel)}
+  .hl-tile--ui img{object-fit:contain;background:var(--bg2);padding:14px}
+  .hl-body{display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px}
+  .hl-title{font-weight:700;font-size:16px;color:var(--ink)}
+  .hl-line{font-size:13.5px;color:var(--muted)}
+  .hl-note{font-size:12px;color:#8a93a0}
+  .hl-trust{margin:22px 0 0;text-align:center;font-size:13px;color:#8a93a0}
+  @media(max-width:1000px){.hl-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.hl-grid{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){.hl-tile{transition:none}.hl-tile:hover,.hl-tile:focus-visible{transform:none}}
+
   /* DEVICE LINEUP */
   .lineup{display:flex;align-items:flex-end;justify-content:center;gap:0;margin-top:56px;min-height:330px}
   .scene{position:absolute;inset:0;background:radial-gradient(130% 120% at 60% 20%,#16243f,#0a0b0f 60%)}
