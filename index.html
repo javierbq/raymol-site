@@ -430,6 +430,49 @@ html,body{overflow-x:hidden;max-width:100%}
   </div>
 </section>
 
+<!-- DESIGN & PREDICT — on-device ProteinMPNN (Design mode, 1.9) and Boltz-2 / Protenix (Predict, 1.10).
+     Binder Design (RFdiffusion3) is experimental and deliberately absent. -->
+<section id="design-predict" class="tools">
+  <div class="wrap">
+    <div style="text-align:center">
+      <div class="kicker" style="color:var(--gold)">Design &amp; predict, on-device</div>
+      <h2 class="tools-h2">Redesign it. Fold&nbsp;it.<br>No server required.</h2>
+      <p style="color:#aeb6c2;font-size:17px;max-width:640px;margin:16px auto 0">Raymol runs ProteinMPNN sequence design and Boltz-2 structure prediction on your device's own GPU. No server round-trip, no export and re-import, no account: results land right in your session.</p>
+    </div>
+
+    <div class="tool-grid reveal">
+      <article class="tool-card">
+        <img src="assets/screenshots/tools-design.webp" alt="Design mode on ubiquitin (1UBQ): the cartoon colored by native fit, with the 20-amino-acid propensity row for residue 27 above it" loading="lazy" width="1000" height="562">
+        <div class="tool-body">
+          <div class="tool-tag">Design mode · ⌃D</div>
+          <h3>Redesign sequences with ProteinMPNN</h3>
+          <p>Score every residue and color the structure by how well each one fits. Hover any position for its full 20-amino-acid propensity, click to mutate and Raymol re-scores and repacks the side chain live, or redesign a whole selected region with the rest held fixed.</p>
+          <ul class="tool-facts">
+            <li>The model ships inside the app — fully offline</li>
+            <li>Every edit lands on a working copy you can keep or discard</li>
+            <li>On Mac, and on iPhone and iPad with iOS 18+</li>
+          </ul>
+        </div>
+      </article>
+      <article class="tool-card">
+        <img src="assets/screenshots/tools-predict.webp" alt="The Predict bar in Raymol: a sequence typed in, Boltz-2 selected, and Run, above a multi-chain structure in the viewport" loading="lazy" width="1000" height="562">
+        <div class="tool-body">
+          <div class="tool-tag">Tools ▸ Predict · ⌃P</div>
+          <h3>Fold a sequence with Boltz-2 or Protenix</h3>
+          <p>Type or select a sequence and fold it right in Raymol. A live tray tracks each run with a per-phase ETA, and confidence metrics like pLDDT and PAE stay with the object, ready to color by.</p>
+          <ul class="tool-facts">
+            <li>About 90 seconds of inference for a 300-residue protein on an M3 Pro (Boltz-2, single sequence)</li>
+            <li>Model weights download once, on first use — about 0.5 GB for Boltz-2</li>
+            <li>On iPhone and iPad too, with Boltz-2 on iOS 18+</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <p class="tools-note">Design and Predict are in every build: the Mac App Store, the direct download, Homebrew, and the App Store for iPhone and iPad.</p>
+  </div>
+</section>
+
 <!-- CONNECT AN AI APP (MCP) -->
 <section id="ai-connect" class="wrap" style="padding-top:64px;padding-bottom:40px;background:var(--bg2)">
   <div style="text-align:center;max-width:680px;margin:0 auto">
@@ -537,7 +580,7 @@ html,body{overflow-x:hidden;max-width:100%}
       <div class="brand" style="color:#fff"><img class="ico" style="width:28px;height:28px" src="assets/raymol-app-icon.png?v=2" alt="Raymol"> Raymol</div>
       <p style="margin-top:12px;line-height:1.6">A Metal-based build of PyMOL for Mac, iPad, and iPhone.</p>
     </div>
-    <div><h4>Product</h4><a href="#features">Features</a><br><a href="#materials">Materials</a><br><a href="#themes">Themes</a><br><a href="#devices">Devices</a><br><a href="#download">Download</a></div>
+    <div><h4>Product</h4><a href="#features">Features</a><br><a href="#materials">Materials</a><br><a href="#design-predict">Design &amp; Predict</a><br><a href="#themes">Themes</a><br><a href="#devices">Devices</a><br><a href="#download">Download</a></div>
     <!-- launch: point these at real destinations when they exist (docs, support, repo, license) -->
     <div><h4>Resources</h4>Documentation<br><a href="https://github.com/javierbq/RayMol/releases/tag/v1.12.0">What's new</a><br><a href="/support">Support</a></div>
     <div><h4>Community</h4><a href="/community">Join Slack</a><br><a href="https://github.com/javierbq/raymol">GitHub</a></div>

@@ -217,6 +217,23 @@
   @media(max-width:1000px){.mat-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.mat-grid{grid-template-columns:1fr}.mat-controls{margin-top:48px}}
 
+  /* DESIGN & PREDICT — a dark band like .compare, holding two tool cards */
+  .tools{background:var(--darkpanel);color:#fff}
+  .tools-h2{font-size:38px;font-weight:800;color:#fff;margin-top:10px}
+  .tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
+  .tool-card{min-width:0;border:1px solid #20242e;border-radius:18px;overflow:hidden;background:#12141b}
+  .tool-card img{display:block;width:100%;height:auto;border-bottom:1px solid #20242e}
+  .tool-body{padding:24px 26px 28px}
+  .tool-tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+  .tool-body h3{font-size:22px;margin-top:10px;color:#fff}
+  .tool-body p{font-size:15px;color:#aeb6c2;margin-top:10px}
+  .tool-facts{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:13.5px;color:#cfd5de}
+  .tool-facts li{position:relative;padding-left:20px}
+  .tool-facts li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--grad)}
+  .tools-note{max-width:720px;margin:30px auto 0;text-align:center;font-size:14px;color:#8a93a0;line-height:1.65}
+  @media(max-width:880px){.tool-grid{grid-template-columns:1fr}}
+  @media(max-width:560px){.tools-h2{font-size:30px}.tool-body{padding:20px 20px 24px}}
+
   /* THEMES */
   .themes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
   .theme-card{margin:0;text-align:center}

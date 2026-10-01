@@ -119,3 +119,49 @@ its translucent surface, and that guess was wrong.
 3. Reduced motion: the video does not autoplay and shows controls.
 4. The site has a light theme only (no `prefers-color-scheme` rules), so there is no dark
    theme to check.
+
+## Addendum — Design & Predict section
+
+Requested after the Materials section: a section highlighting the tools, specifically
+design and structure prediction. It is a dark full-width band (`.tools`, styled like
+`.compare`) between Themes and "Connect your AI", with two cards and a footer link
+(`#design-predict`). There is still no nav link, for the measured reason above.
+
+### What "design" means here
+
+RayMol has two things called design, and only one may appear:
+
+| Feature | What it is | On the site? |
+| --- | --- | --- |
+| **Design mode** (1.9.0, ⌃D) | on-device ProteinMPNN: per-residue native-fit / certainty coloring, 20-aa propensity, point mutation with live rescore + repack, region redesign, working copy | **Yes** |
+| **Binder Design** | RFdiffusion3 backbone generator (`cmd.binder_design`, `rfd3`), shown only when `RAYMOL_EXPERIMENTAL_BINDER_DESIGN` is set | **No** (experimental) |
+
+### Verified facts (RayMol `v1.12.0`)
+
+| Fact | Source |
+| --- | --- |
+| Design and Predict are in every build. `RAYMOL_MPNN` is set for macOS and iOS SDKs; `RAYMOL_MAS_RESTRICTED` removes only MCP and Sparkle. The iOS 1.11.1 App Store notes mention Design on iPhone | `swiftui/project.yml`, `#if` audit, iTunes lookup |
+| Design on iOS: iPhone and iPad, **iOS 18+** | `DesignAvailability.swift`, phase 2d spec |
+| Predict on iOS: **iOS 18+**, not the Simulator, **Boltz-2 only** (Protenix and RFD3 link on macOS only) | `PredictAvailability.swift`, `InferenceRouter.runtimes` |
+| Design runs fully offline; the ProteinMPNN model ships in the app | 1.9.0 release notes; `MPNN.mpnnpack` bundled by `project.yml` |
+| Boltz-2 int8 weights: 507 MB, downloaded once from `javierbq/boltz-mlx` GitHub releases | `docs/predictors.md`, `modules/pymol/predictors/boltz2.py` |
+| ~90 s (92.2 s) to fold 300 residues on an M3 Pro: Boltz-2 int8, upstream defaults (3 recycles, 200 diffusion steps), single sequence, **inference only** (excludes a ~10 s model load), measured 2026-08-12 | `docs/predict-benchmark-boltz2-m3pro.csv` |
+
+The copy states the number with its scope ("of inference", "M3 Pro", "Boltz-2, single
+sequence") rather than as a bare speed claim.
+
+### Deliberately left out
+
+- **MSA search.** It sends the sequence to a ColabFold server (`api.colabfold.com`
+  by default). The site's privacy page says the app "does not send your data anywhere"
+  and lists only the PDB fetch, so advertising MSA search would contradict it. The privacy
+  page has been inaccurate since 1.10.0. Rewording a privacy policy is the owner's call,
+  so it is reported, not edited here.
+- **Binder Design / RFdiffusion3**, as above.
+
+### Media
+
+| File | Source | Size |
+| --- | --- | --- |
+| `assets/screenshots/tools-design.webp` | in-app What's New `whatsnew-190-design.png`, 1000×562 | 21 KB |
+| `assets/screenshots/tools-predict.webp` | in-app What's New `whatsnew-1100-predict.png`, 1000×562 | 43 KB |
