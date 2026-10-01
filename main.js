@@ -118,6 +118,28 @@ function initDownload(){
   });
 }
 
+// Muted loops that play only while on screen. The markup ships `controls`, so the
+// video stays playable without JS and under reduced motion, where it never starts itself.
+function initVideos(){
+  const vids = document.querySelectorAll('video[data-autoplay]');
+  if(!vids.length) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const v = e.target;
+      if(!e.isIntersecting){ v.pause(); return; }
+      // autoplay can still be refused (e.g. Low Power Mode): hand back the controls.
+      // An AbortError only means a pause() from scrolling away interrupted the play().
+      v.play().catch(err => { if(err.name === 'NotAllowedError') v.controls = true; });
+    });
+  }, { threshold: 0.25 });
+  vids.forEach(v => {
+    v.muted = true;
+    v.controls = false;
+    io.observe(v);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initHeroCarousel();
@@ -125,4 +147,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousel();
   initReveal();
   initDownload();
+  initVideos();
 });
