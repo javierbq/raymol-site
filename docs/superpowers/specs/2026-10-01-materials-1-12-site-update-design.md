@@ -81,13 +81,19 @@ section is reached from the hero's "New" pill and the footer's Product column in
 | --- | --- | --- |
 | `assets/video/materials-gold.mp4` | `Gold video.mp4`, 1280×720, 240 frames, H.264 CRF 26, no audio, faststart | 1.38 MB |
 | `assets/screenshots/materials-gold-poster.webp` | first frame of the encoded loop | 30 KB |
-| `assets/screenshots/materials-rubber.webp` | `rubber.png`, 4:3 crop → 960×720 | 34 KB |
+| `assets/screenshots/materials-layers.webp` | `render.png`, 4:3 crop → 960×720 | 71 KB |
 | `assets/screenshots/materials-marble.webp` | `Marble.png`, 4:3 crop → 960×720 | 30 KB |
-| `assets/screenshots/materials-glass.webp` | `render.png`, 4:3 crop → 960×720 | 71 KB |
+| `assets/screenshots/materials-glass.webp` | `Glass2.png`, 4:3 crop → 960×720 | 51 KB |
 | `assets/screenshots/materials-sidechains.webp` | `Heme.png`, 4:3 crop → 960×720 | 59 KB |
 | `assets/screenshots/materials-inspector.webp` | store shot `05-material-controls.png`, Inspector crop, 1160×960 | 47 KB |
 
 No 4K originals are committed.
+
+Which render illustrates which claim comes from the owner or the in-app What's New, never
+from how a render looks. `render.png` is several materials, one per layer (confirmed by
+the owner), so it illustrates "any layer", not glass. The glass card uses `Glass2.png`,
+the image What's New pairs with glass. An earlier draft guessed `render.png` was glass from
+its translucent surface, and that guess was wrong.
 
 ## Changes
 
