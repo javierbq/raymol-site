@@ -215,3 +215,24 @@ repo for now; deleting them is a separate cleanup.
 - Act headers (option B). They could be layered on later.
 - The privacy page (#12); MSA search stays off the page until it is resolved.
 - Deleting newly unreferenced assets.
+
+## Update — hero video replaced (2026-10-01)
+
+At the owner's request, the hero now plays a screen recording of Raymol itself instead of
+the gold render: the full app window playing a 16-second movie of a heme protein in a gold
+cartoon, with the console and Movie panel open.
+
+| File | Source | Size |
+| --- | --- | --- |
+| `assets/video/hero-raymol-movie.mp4` | owner's screen recording, HDR (BT.2020/PQ) HEVC 3320×2108 | 2,710,511 B |
+| `assets/screenshots/hero-raymol-movie-poster.webp` | first frame of the encode | 66,390 B |
+
+**Processing:**
+- Tone-mapped to SDR: zscale linearize at 100 nits, mobius, BT.709. That matched the macOS dark-window gray (RGB 51); 203 nits read too dark.
+- Cropped to the window, with a thin black margin, at 16:10, then scaled to 1600×1000.
+- The capture's variable frame rate repeated 55 of 535 frames. The 480 unique frames were found with `mpdecimate` on a low-res proxy, selected by timestamp at full resolution, and re-timed to a constant 30 fps. That recovers the app's own movie, which loops seamlessly at 16.0 s (the last→first step is 1.19× a normal step).
+- H.264 CRF 28, no audio, faststart.
+
+**Page changes:**
+- The hero frame changed from 16:9 to 16:10, in both the stylesheet and the critical CSS.
+- `materials-gold.mp4` and its poster were removed; they were only ever added in this PR. The new filenames keep any cached copy of the old loop from showing.
