@@ -183,26 +183,15 @@ html,body{overflow-x:hidden;max-width:100%}
   <p class="hl-trust">Built on the real PyMOL engine · 60 fps Metal rendering · Mac · iPad · iPhone · Free</p>
 </section>
 
-<!-- FEATURES -->
-<section id="features" class="wrap" style="padding-top:40px;padding-bottom:40px;background:var(--bg2)">
-  <div class="feat reveal">
-    <div class="txt">
-      <div class="kicker">Real-time rendering</div>
-      <h2>Shadows and depth,<br>in real time.</h2>
-      <p>A Metal rendering engine replaces OpenGL, adding real-time shadow mapping, ambient occlusion, and order-independent transparency at interactive frame rates — and, new in 1.12, materials from polished gold to glass that bends light. On supported Apple Silicon, hardware ray tracing is available for higher-quality lighting, and reflective materials then reflect the structure itself.</p>
-    </div>
-    <!-- CAPTURE: molecule with shadows + AO on, rotating in the viewport. Replace this block with <div class="media"><img src="assets/screenshots/rendering.webp" alt="…" loading="lazy" width="1200" height="800"></div> -->
-    <div class="media"><img src="assets/screenshots/rendering.webp" alt="Ubiquitin cartoon with shadows and ambient occlusion rendered in Raymol's Metal engine" loading="lazy" width="2080" height="1560" style="width:100%;height:auto;display:block"></div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
+<!-- REAL-TIME RENDERING + RAYMOL VS PYMOL — absorbs the old #features card; #features stays as an anchor -->
 <section id="compare" class="compare">
   <div class="wrap">
     <div style="text-align:center">
-      <div class="kicker" style="color:var(--gold)">Raymol vs PyMOL</div>
-      <h2 style="font-size:38px;font-weight:800;color:#fff;margin-top:10px">The same scene,<br>two renderers.</h2>
-      <p style="color:#aeb6c2;font-size:17px;max-width:620px;margin:16px auto 0">Open the same <code style="color:#fff">.pse</code> in each. Raymol's Metal viewport adds shadows, ambient occlusion, and antialiasing that PyMOL's default OpenGL viewport doesn't show in real time.</p>
+      <span id="features"></span>
+      <div class="kicker" style="color:var(--gold)">Real-time rendering</div>
+      <h2 style="font-size:38px;font-weight:800;color:#fff;margin-top:10px">Shadows and depth,<br>in real time.</h2>
+      <p style="color:#aeb6c2;font-size:17px;max-width:680px;margin:16px auto 0">A Metal rendering engine replaces OpenGL, adding real-time shadow mapping, ambient occlusion, and order-independent transparency at interactive frame rates — and, new in 1.12, materials from polished gold to glass that bends light. On supported Apple Silicon, hardware ray tracing is available for higher-quality lighting, and reflective materials then reflect the structure itself.</p>
+      <p style="color:#aeb6c2;font-size:17px;max-width:680px;margin:12px auto 0">Open the same <code style="color:#fff">.pse</code> in Raymol and PyMOL: Raymol's Metal viewport adds shadows, ambient occlusion, and antialiasing that PyMOL's default OpenGL viewport doesn't show in real time.</p>
     </div>
 
     <div class="carousel reveal">
