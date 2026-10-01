@@ -72,7 +72,7 @@ function initCarousel(){
   });
 }
 
-function initHeroCarousel(){
+function initThemeCarousel(){
   const car = document.querySelector('.theme-carousel');
   if(!car) return;
   const slides = Array.from(car.querySelectorAll('.tc-slide'));
@@ -132,7 +132,7 @@ function initVideos(){
       // An AbortError only means a pause() from scrolling away interrupted the play().
       v.play().catch(err => { if(err.name === 'NotAllowedError') v.controls = true; });
     });
-  }, { threshold: 0.25 });
+  }, { threshold: 0.1 });
   vids.forEach(v => {
     v.muted = true;
     v.controls = false;
@@ -142,7 +142,7 @@ function initVideos(){
 
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
-  initHeroCarousel();
+  initThemeCarousel();
   initCompare();
   initCarousel();
   initReveal();

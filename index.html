@@ -83,6 +83,8 @@ html,body{overflow-x:hidden;max-width:100%}
 .theme-carousel{position:relative;aspect-ratio:2400/1600;overflow:hidden;border-radius:16px}
 .tc-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
 .tc-slide.active{opacity:1}
+.hero-video{aspect-ratio:16/9;overflow:hidden;border-radius:16px}
+.hero-video video{display:block;width:100%;height:100%;object-fit:cover}
 .feat .media{min-height:0}
 @media(max-width:600px){.lineup{transform:scale(.46);transform-origin:top center;margin-bottom:-150px}}
 </style>
@@ -138,7 +140,7 @@ html,body{overflow-x:hidden;max-width:100%}
   <div style="margin-bottom:20px"><a class="soon-pill launch-pill" href="#materials">New in 1.12 · Materials →</a></div>
   <div class="kicker">Built on the open-source PyMOL engine</div>
   <h1>Molecular visualization,<br>built for Apple Silicon.</h1>
-  <p class="lead">Raymol is a Metal-based build of PyMOL for Mac, iPad, and iPhone — a modern, native interface with real-time rendering, on the open-source engine you already know.</p>
+  <p class="lead">Raymol is the open-source PyMOL engine rebuilt for Mac, iPad, and iPhone: real-time ray tracing and materials, on-device protein design and structure prediction, and Claude at the controls.</p>
   <div class="cta-dl">
     <a class="btn btn-primary" style="padding:15px 32px;font-size:17px;text-decoration:none" href="https://github.com/javierbq/RayMol/releases/latest/download/RayMol.dmg" download aria-label="Get Raymol for Mac — download the .dmg (84 MB)">Get Raymol</a>
     <a class="store-badge" href="https://apps.apple.com/us/app/raymol/id6781513038" aria-label="Download Raymol for iPhone and iPad on the App Store">
@@ -150,18 +152,10 @@ html,body{overflow-x:hidden;max-width:100%}
   <div class="freenote">Free · macOS 14+ · iPadOS &amp; iOS 17+ · Apple Silicon</div>
 
   <div class="hero-shot reveal">
-    <div class="theme-carousel" role="group" aria-label="The same Raymol session in four built-in themes">
-      <img class="tc-slide active" src="assets/screenshots/hero-classic.webp?v=1" alt="Raymol on macOS — Classic theme — rainbow cartoon of ubiquitin (1UBQ) in the Metal viewport" width="2400" height="1600" loading="eager" decoding="async">
-      <img class="tc-slide" src="assets/screenshots/hero-paper.webp?v=1" alt="Raymol on macOS — Paper theme" width="2400" height="1600" loading="lazy" decoding="async">
-      <img class="tc-slide" src="assets/screenshots/hero-sunset.webp?v=1" alt="Raymol on macOS — Sunset theme" width="2400" height="1600" loading="lazy" decoding="async">
-      <img class="tc-slide" src="assets/screenshots/hero-dawn.webp?v=1" alt="Raymol on macOS — Dawn theme" width="2400" height="1600" loading="lazy" decoding="async">
-      <span class="tc-label" aria-hidden="true">Classic</span>
-      <div class="tc-dots" role="tablist" aria-label="Theme">
-        <button class="tc-dot active" type="button" aria-label="Classic theme"></button>
-        <button class="tc-dot" type="button" aria-label="Paper theme"></button>
-        <button class="tc-dot" type="button" aria-label="Sunset theme"></button>
-        <button class="tc-dot" type="button" aria-label="Dawn theme"></button>
-      </div>
+    <div class="hero-video">
+      <video data-autoplay width="1280" height="720" muted loop playsinline controls preload="none" poster="assets/screenshots/materials-gold-poster.webp" aria-label="A heme protein turning in place in Raymol: a gold cartoon with gold side chains around the heme">
+        <source src="assets/video/materials-gold.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </div>
@@ -259,12 +253,6 @@ html,body{overflow-x:hidden;max-width:100%}
     <div class="kicker">New in 1.12 · Materials</div>
     <h2 style="font-size:38px;font-weight:800;margin-top:10px">Gold, glass, marble —<br>on any layer.</h2>
     <p style="color:var(--muted);font-size:17px;margin-top:14px">Color says what something is; a material says what it's made of. Give each cartoon, surface, stick, and sphere layer its own finish, and your colors stay exactly as they are.</p>
-  </div>
-
-  <div class="media mat-hero reveal">
-    <video data-autoplay width="1280" height="720" muted loop playsinline controls preload="none" poster="assets/screenshots/materials-gold-poster.webp" aria-label="A heme protein turning in place in Raymol: a gold cartoon with gold side chains around the heme">
-      <source src="assets/video/materials-gold.mp4" type="video/mp4">
-    </video>
   </div>
 
   <div class="mat-grid reveal">
@@ -403,19 +391,6 @@ html,body{overflow-x:hidden;max-width:100%}
   </div>
 </section>
 
-<!-- FINE LAYER CONTROLS -->
-<section id="controls" class="wrap" style="padding-top:64px;padding-bottom:40px">
-  <div class="feat flip reveal">
-    <div class="txt">
-      <div class="kicker">Fine layer controls</div>
-      <h2>Style controls,<br>no command line required.</h2>
-      <p>A live inspector exposes per-representation controls — cartoon tube radius, surface quality, stick and sphere scale, transparency, material, per-object color — plus a scene card for lighting, shadows, and antialiasing. Drag a slider and the viewport updates. The familiar A/S/H/L/C menus are a tap away.</p>
-    </div>
-    <!-- CAPTURE: ObjectPanel inspector open, slider mid-drag, viewport updating. Replace this block with <div class="media"><img src="assets/screenshots/inspector.webp" alt="…" loading="lazy" width="1200" height="800"></div> -->
-    <div class="media"><img src="assets/screenshots/inspector.webp" alt="Raymol on Mac with the representation inspector open — live sliders for transparency, loop radius, and tube radius" loading="lazy" width="2400" height="1600" style="width:100%;height:auto;display:block"></div>
-  </div>
-</section>
-
 <!-- BUILT FOR TOUCH -->
 <section id="touch" class="wrap" style="padding-top:40px">
   <div class="feat reveal">
@@ -429,18 +404,28 @@ html,body{overflow-x:hidden;max-width:100%}
   </div>
 </section>
 
-<!-- THEMES -->
-<section id="themes" class="wrap">
-  <div style="text-align:center;max-width:640px;margin:0 auto">
-    <div class="kicker">Make it yours</div>
-    <h2 style="font-size:34px;font-weight:800;margin-top:10px">A theme for every mood.</h2>
-    <p style="color:var(--muted);font-size:17px;margin-top:14px">Restyle the entire interface in a tap. Four themes ship built in — and <b style="color:var(--ink)">Theme Studio</b> lets you craft your own. Your theme follows you across Mac, iPad, and iPhone.</p>
-  </div>
-  <div class="themes-grid reveal">
-    <figure class="theme-card"><img src="assets/screenshots/theme-classic.webp" alt="Raymol Classic theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Classic</figcaption></figure>
-    <figure class="theme-card"><img src="assets/screenshots/theme-paper.webp" alt="Raymol Paper theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Paper</figcaption></figure>
-    <figure class="theme-card"><img src="assets/screenshots/theme-sunset.webp" alt="Raymol Sunset theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Sunset</figcaption></figure>
-    <figure class="theme-card"><img src="assets/screenshots/theme-dawn.webp" alt="Raymol Dawn theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Dawn</figcaption></figure>
+<!-- MAKE IT YOURS — Inspector controls and themes. The Mac theme carousel moved here from the hero. -->
+<section id="themes" class="wrap" style="padding-top:72px;padding-bottom:72px;background:var(--bg2)">
+  <div class="feat reveal">
+    <div class="txt">
+      <div class="kicker">Make it yours</div>
+      <h2>Your controls,<br>your colors.</h2>
+      <p>A live inspector exposes per-representation controls — cartoon tube radius, surface quality, stick and sphere scale, transparency, material, per-object color — plus a scene card for lighting, shadows, and antialiasing. Drag a slider and the viewport updates. The familiar A/S/H/L/C menus are a tap away.</p>
+      <p>Restyle the entire interface in a tap. Four themes ship built in — and <b style="color:var(--ink)">Theme Studio</b> lets you craft your own. Your theme follows you across Mac, iPad, and iPhone.</p>
+    </div>
+    <div class="theme-carousel" role="group" aria-label="The same Raymol session in four built-in themes">
+      <img class="tc-slide active" src="assets/screenshots/hero-classic.webp?v=1" alt="Raymol on macOS — Classic theme — rainbow cartoon of ubiquitin (1UBQ) in the Metal viewport" width="2400" height="1600" loading="lazy" decoding="async">
+      <img class="tc-slide" src="assets/screenshots/hero-paper.webp?v=1" alt="Raymol on macOS — Paper theme" width="2400" height="1600" loading="lazy" decoding="async">
+      <img class="tc-slide" src="assets/screenshots/hero-sunset.webp?v=1" alt="Raymol on macOS — Sunset theme" width="2400" height="1600" loading="lazy" decoding="async">
+      <img class="tc-slide" src="assets/screenshots/hero-dawn.webp?v=1" alt="Raymol on macOS — Dawn theme" width="2400" height="1600" loading="lazy" decoding="async">
+      <span class="tc-label" aria-hidden="true">Classic</span>
+      <div class="tc-dots" role="tablist" aria-label="Theme">
+        <button class="tc-dot active" type="button" aria-label="Classic theme"></button>
+        <button class="tc-dot" type="button" aria-label="Paper theme"></button>
+        <button class="tc-dot" type="button" aria-label="Sunset theme"></button>
+        <button class="tc-dot" type="button" aria-label="Dawn theme"></button>
+      </div>
+    </div>
   </div>
 </section>
 
