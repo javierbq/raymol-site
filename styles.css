@@ -5,8 +5,8 @@
     --grad:linear-gradient(110deg,#F0185C 0%,#F2542D 52%,#F9A825 100%);
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth;overflow-x:hidden}
-  body{margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;
+  html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip;scroll-padding-top:64px}
+  body{margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;overflow-x:clip;
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
     -webkit-font-smoothing:antialiased;line-height:1.5}
   .wrap{max-width:1120px;margin:0 auto;padding:0 28px}

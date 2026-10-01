@@ -74,10 +74,10 @@
 <link rel="icon" type="image/png" href="assets/raymol-app-icon.png?v=2">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=1.12.0">
 <style>
 /* critical: keep these correct even if styles.css is cached stale */
-html,body{overflow-x:hidden;max-width:100%}
+html,body{overflow-x:hidden;overflow-x:clip;max-width:100%}
 .carousel-slide{display:none}
 .carousel-slide.active{display:block}
 .theme-carousel{position:relative;aspect-ratio:2400/1600;overflow:hidden;border-radius:16px}
@@ -291,8 +291,7 @@ html,body{overflow-x:hidden;max-width:100%}
   <p class="dl-note">Also in 1.12: Roll spins at a constant speed in movies, fog fades to the background color instead of black, and a set of rendering fixes. <a class="other-install" href="https://github.com/javierbq/RayMol/releases/tag/v1.12.0">Release notes →</a></p>
 </section>
 
-<!-- DESIGN & PREDICT — on-device ProteinMPNN (Design mode, 1.9) and Boltz-2 / Protenix (Predict, 1.10).
-     Binder Design (RFdiffusion3) is experimental and deliberately absent. -->
+<!-- DESIGN & PREDICT — on-device ProteinMPNN (Design mode, 1.9) and Boltz-2 / Protenix (Predict, 1.10). -->
 <section id="design-predict" class="tools">
   <div class="wrap">
     <div style="text-align:center">
@@ -559,6 +558,6 @@ html,body{overflow-x:hidden;max-width:100%}
   </div>
 </div></footer>
 
-<script src="main.js" defer></script>
+<script src="main.js?v=1.12.0" defer></script>
 </body>
 </html>

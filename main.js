@@ -118,8 +118,9 @@ function initDownload(){
   });
 }
 
-// Muted loops that play only while on screen. The markup ships `controls`, so the
-// video stays playable without JS and under reduced motion, where it never starts itself.
+// Muted loops that play only while on screen. Native controls stay on, so anyone can
+// stop the loop (WCAG 2.2.2) and the video works without JS; under reduced motion it
+// never starts itself. A viewer's pause sticks: scrolling away and back won't restart it.
 function initVideos(){
   const vids = document.querySelectorAll('video[data-autoplay]');
   if(!vids.length) return;
@@ -127,15 +128,16 @@ function initVideos(){
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       const v = e.target;
-      if(!e.isIntersecting){ v.pause(); return; }
-      // autoplay can still be refused (e.g. Low Power Mode): hand back the controls.
-      // An AbortError only means a pause() from scrolling away interrupted the play().
-      v.play().catch(err => { if(err.name === 'NotAllowedError') v.controls = true; });
+      if(!e.isIntersecting){ if(!v.paused){ v.dataset.autoPaused = '1'; v.pause(); } return; }
+      if(v.dataset.userPaused) return;
+      // autoplay can still be refused (e.g. Low Power Mode); the controls are already there
+      v.play().catch(() => {});
     });
   }, { threshold: 0.1 });
   vids.forEach(v => {
     v.muted = true;
-    v.controls = false;
+    v.addEventListener('pause', () => { if(v.dataset.autoPaused) delete v.dataset.autoPaused; else v.dataset.userPaused = '1'; });
+    v.addEventListener('play', () => { delete v.dataset.userPaused; });
     io.observe(v);
   });
 }
