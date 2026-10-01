@@ -174,98 +174,6 @@ html,body{overflow-x:hidden;max-width:100%}
   <span>🆓 <b>Free</b> to download</span>
 </div></div>
 
-<!-- DOWNLOAD / INSTALL CHANNELS -->
-<section id="download" class="wrap" style="padding-top:72px;padding-bottom:40px">
-  <div style="text-align:center;max-width:680px;margin:0 auto">
-    <div class="kicker">Download</div>
-    <h2 style="font-size:34px;font-weight:800;margin-top:10px">Get Raymol, free.</h2>
-    <p style="color:var(--muted);font-size:17px;margin-top:14px">Three ways to install on Mac, one tap on iPhone and iPad — the same app and the same engine on every screen.</p>
-  </div>
-
-  <div class="dl-group">
-  <div class="kicker">For Mac</div>
-  <div class="dl-grid reveal">
-    <div class="dl-card">
-      <h3>Mac App Store</h3>
-      <p>One-click install and updates through the App Store.</p>
-      <a class="store-badge" href="https://apps.apple.com/us/app/raymol/id6781513038?mt=12" aria-label="Download Raymol on the Mac App Store">
-        <img src="assets/badges/mac-app-store.svg" alt="Download on the Mac App Store" width="180" height="60">
-      </a>
-    </div>
-    <div class="dl-card">
-      <h3>Direct download</h3>
-      <span class="mcp-badge" title="Includes the built-in MCP server, so Claude can drive Raymol">✦ MCP included</span>
-      <p>Notarized <code>.dmg</code> · 84 MB · auto-updating.</p>
-      <a class="btn btn-primary" style="text-decoration:none" href="https://github.com/javierbq/RayMol/releases/latest/download/RayMol.dmg">Download .dmg</a>
-    </div>
-    <div class="dl-card">
-      <h3>Homebrew</h3>
-      <span class="mcp-badge" title="Includes the built-in MCP server, so Claude can drive Raymol">✦ MCP included</span>
-      <p>Install and update from the command line.</p>
-      <div class="brew">
-        <code id="brew-cmd">brew install --cask javierbq/raymol/raymol</code>
-        <button class="brew-copy" type="button" aria-live="polite" aria-label="Copy the Homebrew install command">Copy</button>
-      </div>
-    </div>
-  </div>
-  <p class="dl-note"><b>Same app, two builds.</b> The direct-download and Homebrew builds are identical and include the built-in MCP server, so Claude can drive Raymol. The Mac App Store build is the same app without that integration — App Store sandboxing doesn't allow it. Everything else is the same.</p>
-  <div class="reqs" style="margin-top:22px">
-    <span>🆓 <b>Free</b></span>
-    <span>💻 <b>macOS 14+</b> · Apple Silicon</span>
-  </div>
-  </div>
-
-  <div class="dl-group">
-  <div class="kicker">For iPhone &amp; iPad</div>
-  <div class="dl-card dl-single reveal">
-    <h3>App Store</h3>
-    <p>One universal app for iPhone and iPad — install and update through the App Store.</p>
-    <a class="store-badge" href="https://apps.apple.com/us/app/raymol/id6781513038" aria-label="Download Raymol for iPhone and iPad on the App Store">
-      <img src="assets/badges/app-store.svg" alt="Download on the App Store" width="180" height="60">
-    </a>
-  </div>
-  <div class="reqs" style="margin-top:22px">
-    <span>🆓 <b>Free</b></span>
-    <span>📲 <b>iPhone</b> — iOS 17+</span>
-    <span>📱 <b>iPad</b> — iPadOS 17+</span>
-  </div>
-  </div>
-</section>
-
-<!-- DEVICE LINEUP / PORTABILITY -->
-<section id="devices">
-  <div class="wrap" style="text-align:center">
-    <div class="kicker">Everywhere you work</div>
-    <h2 style="font-size:38px;font-weight:800;margin-top:10px">The same app,<br>on every screen.</h2>
-    <p style="color:var(--muted);font-size:18px;max-width:640px;margin:16px auto 0">One Swift + Metal codebase, native on each device. Open a <code>.pse</code> on the Mac, keep working on iPad, review it on your phone.</p>
-
-    <div class="reveal">
-    <div class="lineup">
-      <!-- laptop -->
-      <div class="laptop">
-        <div class="screen"><img src="assets/screenshots/device-mac.webp" alt="Raymol full studio on Mac" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-        <div class="base"></div>
-      </div>
-      <!-- ipad -->
-      <div class="ipad"><div class="screen"><img src="assets/screenshots/device-ipad.webp" alt="Raymol on iPad" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></div>
-      <!-- iphone -->
-      <div class="iphone"><div class="notch"></div><div class="screen"><img src="assets/screenshots/device-iphone.webp" alt="Raymol on iPhone — full app" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></div>
-    </div>
-    </div>
-
-    <div style="margin-top:46px">
-      <div class="full-badge"><span class="dot"></span> The full app on iPhone — not a cut-down companion</div>
-      <p style="color:var(--muted);font-size:16px;max-width:620px;margin:18px auto 0">The iPhone build is the <b style="color:var(--ink)">complete app</b> — the same engine, representations, settings, command language, and export as the Mac, on the device in your pocket.</p>
-    </div>
-
-    <div class="reqs">
-      <span>💻 <b>Mac</b> — macOS 14+, Apple Silicon</span>
-      <span>📱 <b>iPad</b> — iPadOS 17+</span>
-      <span>📲 <b>iPhone</b> — iOS 17+</span>
-    </div>
-  </div>
-</section>
-
 <!-- FEATURES -->
 <section id="features" class="wrap" style="padding-top:40px;padding-bottom:40px;background:var(--bg2)">
   <div class="feat reveal">
@@ -277,52 +185,6 @@ html,body{overflow-x:hidden;max-width:100%}
     <!-- CAPTURE: molecule with shadows + AO on, rotating in the viewport. Replace this block with <div class="media"><img src="assets/screenshots/rendering.webp" alt="…" loading="lazy" width="1200" height="800"></div> -->
     <div class="media"><img src="assets/screenshots/rendering.webp" alt="Ubiquitin cartoon with shadows and ambient occlusion rendered in Raymol's Metal engine" loading="lazy" width="2080" height="1560" style="width:100%;height:auto;display:block"></div>
   </div>
-</section>
-
-<!-- MATERIALS — new in 1.12. Copy checked against the 1.12.0 release notes, store copy, and docs/materials.md -->
-<section id="materials" class="wrap" style="padding-top:72px;padding-bottom:40px">
-  <div style="text-align:center;max-width:700px;margin:0 auto">
-    <div class="kicker">New in 1.12 · Materials</div>
-    <h2 style="font-size:38px;font-weight:800;margin-top:10px">Gold, glass, marble —<br>on any layer.</h2>
-    <p style="color:var(--muted);font-size:17px;margin-top:14px">Color says what something is; a material says what it's made of. Give each cartoon, surface, stick, and sphere layer its own finish, and your colors stay exactly as they are.</p>
-  </div>
-
-  <div class="media mat-hero reveal">
-    <video data-autoplay width="1280" height="720" muted loop playsinline controls preload="none" poster="assets/screenshots/materials-gold-poster.webp" aria-label="A heme protein turning in place in Raymol: a gold cartoon with gold side chains around the heme">
-      <source src="assets/video/materials-gold.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="mat-grid reveal">
-    <div class="mat-card">
-      <img src="assets/screenshots/materials-layers.webp" alt="One structure with a different material on each layer: a translucent yellow surface over an orange cartoon and ball-and-stick side chains" loading="lazy" width="960" height="720">
-      <div class="mat-body"><h3>Nine materials, any layer</h3><p>Matte, plastic, metallic, glass, frosted glass, jelly, marble, clay, or rubber, set per object, and each layer of an object can have its own.</p></div>
-    </div>
-    <div class="mat-card">
-      <img src="assets/screenshots/materials-marble.webp" alt="A protein's molecular surface in veined marble, with the heme visible in its pocket" loading="lazy" width="960" height="720">
-      <div class="mat-body"><h3>One-click Looks</h3><p>Gold, Copper, Bronze, Steel, Chrome, Marble, and Clay. A Look sets a layer's material and color together, ready to fine-tune from there.</p></div>
-    </div>
-    <div class="mat-card">
-      <img src="assets/screenshots/materials-glass.webp" alt="The heme seen through a clear glass surface, with bright glints across the glass" loading="lazy" width="960" height="720">
-      <div class="mat-body"><h3>Glass that bends light</h3><p>Glass, frosted glass, and jelly refract what's behind them through the shape of the surface, so a ligand seen through glass looks like it's inside.</p></div>
-    </div>
-    <div class="mat-card">
-      <img src="assets/screenshots/materials-sidechains.webp" alt="Close-up of a gold cartoon whose side chains are gold too, beside the heme" loading="lazy" width="960" height="720">
-      <div class="mat-body"><h3>Side chains follow the cartoon</h3><p>Show side chains on a cartoon and they take on its material automatically, so a gold backbone gets gold side chains. Give them their own any time.</p></div>
-    </div>
-  </div>
-
-  <div class="feat flip mat-controls reveal">
-    <div class="txt">
-      <div class="kicker">In the Inspector</div>
-      <h3>A Material menu<br>on every layer.</h3>
-      <p>Each layer row has a Material menu, with a Look chip beside it. <b style="color:var(--ink)">Custom…</b> opens that material's own knobs — reflection, tint, roughness, and more — for that layer only.</p>
-      <p>Plastic, metallic, and the glass rim reflect the background or a neutral studio, and with Metal ray tracing on, the structure itself. Materials are saved in your sessions and scenes.</p>
-    </div>
-    <div class="media"><img src="assets/screenshots/materials-inspector.webp" alt="The Inspector on Mac: the Cartoon layer's Material reads Custom (metallic) with Reflection, Reflection tint, and Roughness sliders, and the Look menu is open on Gold, Copper, Bronze, Steel, Chrome, Marble (statuary), and Clay (terracotta)" loading="lazy" width="1160" height="960"></div>
-  </div>
-
-  <p class="dl-note">Also in 1.12: Roll spins at a constant speed in movies, fog fades to the background color instead of black, and a set of rendering fixes. <a class="other-install" href="https://github.com/javierbq/RayMol/releases/tag/v1.12.0">Release notes →</a></p>
 </section>
 
 <!-- COMPARISON -->
@@ -391,43 +253,50 @@ html,body{overflow-x:hidden;max-width:100%}
   </div>
 </section>
 
-<section class="wrap" style="padding-top:64px;padding-bottom:40px">
-  <div class="feat flip reveal">
-    <div class="txt">
-      <div class="kicker">Fine layer controls</div>
-      <h2>Style controls,<br>no command line required.</h2>
-      <p>A live inspector exposes per-representation controls — cartoon tube radius, surface quality, stick and sphere scale, transparency, material, per-object color — plus a scene card for lighting, shadows, and antialiasing. Drag a slider and the viewport updates. The familiar A/S/H/L/C menus are a tap away.</p>
-    </div>
-    <!-- CAPTURE: ObjectPanel inspector open, slider mid-drag, viewport updating. Replace this block with <div class="media"><img src="assets/screenshots/inspector.webp" alt="…" loading="lazy" width="1200" height="800"></div> -->
-    <div class="media"><img src="assets/screenshots/inspector.webp" alt="Raymol on Mac with the representation inspector open — live sliders for transparency, loop radius, and tube radius" loading="lazy" width="2400" height="1600" style="width:100%;height:auto;display:block"></div>
+<!-- MATERIALS — new in 1.12. Copy checked against the 1.12.0 release notes, store copy, and docs/materials.md -->
+<section id="materials" class="wrap" style="padding-top:72px;padding-bottom:40px">
+  <div style="text-align:center;max-width:700px;margin:0 auto">
+    <div class="kicker">New in 1.12 · Materials</div>
+    <h2 style="font-size:38px;font-weight:800;margin-top:10px">Gold, glass, marble —<br>on any layer.</h2>
+    <p style="color:var(--muted);font-size:17px;margin-top:14px">Color says what something is; a material says what it's made of. Give each cartoon, surface, stick, and sphere layer its own finish, and your colors stay exactly as they are.</p>
   </div>
-</section>
 
-<section class="wrap" style="padding-top:40px">
-  <div class="feat reveal">
-    <div class="txt">
-      <div class="kicker">Built for touch</div>
-      <h2>Rotate, zoom & roll<br>with one gesture.</h2>
-      <p>Multi-touch on iPhone and iPad — one finger to rotate, two to pan, pinch to zoom, twist to roll, combined in a single gesture. On Mac, trackpad gestures map to the camera, with the classic per-button mouse mode also available.</p>
-    </div>
-    <!-- CAPTURE: pinch/rotate gesture on iPad, molecule responding. Replace this block with <div class="media"><img src="assets/screenshots/touch.webp" alt="…" loading="lazy" width="1200" height="800"></div> -->
-    <div class="media"><img src="assets/screenshots/touch.webp" alt="Raymol's touch gesture guide on iPad — rotate, pan, zoom, roll, clip, select" loading="lazy" width="1640" height="2360" style="width:100%;height:auto;display:block"></div>
+  <div class="media mat-hero reveal">
+    <video data-autoplay width="1280" height="720" muted loop playsinline controls preload="none" poster="assets/screenshots/materials-gold-poster.webp" aria-label="A heme protein turning in place in Raymol: a gold cartoon with gold side chains around the heme">
+      <source src="assets/video/materials-gold.mp4" type="video/mp4">
+    </video>
   </div>
-</section>
 
-<!-- THEMES -->
-<section id="themes" class="wrap">
-  <div style="text-align:center;max-width:640px;margin:0 auto">
-    <div class="kicker">Make it yours</div>
-    <h2 style="font-size:34px;font-weight:800;margin-top:10px">A theme for every mood.</h2>
-    <p style="color:var(--muted);font-size:17px;margin-top:14px">Restyle the entire interface in a tap. Four themes ship built in — and <b style="color:var(--ink)">Theme Studio</b> lets you craft your own. Your theme follows you across Mac, iPad, and iPhone.</p>
+  <div class="mat-grid reveal">
+    <div class="mat-card">
+      <img src="assets/screenshots/materials-layers.webp" alt="One structure with a different material on each layer: a translucent yellow surface over an orange cartoon and ball-and-stick side chains" loading="lazy" width="960" height="720">
+      <div class="mat-body"><h3>Nine materials, any layer</h3><p>Matte, plastic, metallic, glass, frosted glass, jelly, marble, clay, or rubber, set per object, and each layer of an object can have its own.</p></div>
+    </div>
+    <div class="mat-card">
+      <img src="assets/screenshots/materials-marble.webp" alt="A protein's molecular surface in veined marble, with the heme visible in its pocket" loading="lazy" width="960" height="720">
+      <div class="mat-body"><h3>One-click Looks</h3><p>Gold, Copper, Bronze, Steel, Chrome, Marble, and Clay. A Look sets a layer's material and color together, ready to fine-tune from there.</p></div>
+    </div>
+    <div class="mat-card">
+      <img src="assets/screenshots/materials-glass.webp" alt="The heme seen through a clear glass surface, with bright glints across the glass" loading="lazy" width="960" height="720">
+      <div class="mat-body"><h3>Glass that bends light</h3><p>Glass, frosted glass, and jelly refract what's behind them through the shape of the surface, so a ligand seen through glass looks like it's inside.</p></div>
+    </div>
+    <div class="mat-card">
+      <img src="assets/screenshots/materials-sidechains.webp" alt="Close-up of a gold cartoon whose side chains are gold too, beside the heme" loading="lazy" width="960" height="720">
+      <div class="mat-body"><h3>Side chains follow the cartoon</h3><p>Show side chains on a cartoon and they take on its material automatically, so a gold backbone gets gold side chains. Give them their own any time.</p></div>
+    </div>
   </div>
-  <div class="themes-grid reveal">
-    <figure class="theme-card"><img src="assets/screenshots/theme-classic.webp" alt="Raymol Classic theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Classic</figcaption></figure>
-    <figure class="theme-card"><img src="assets/screenshots/theme-paper.webp" alt="Raymol Paper theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Paper</figcaption></figure>
-    <figure class="theme-card"><img src="assets/screenshots/theme-sunset.webp" alt="Raymol Sunset theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Sunset</figcaption></figure>
-    <figure class="theme-card"><img src="assets/screenshots/theme-dawn.webp" alt="Raymol Dawn theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Dawn</figcaption></figure>
+
+  <div class="feat flip mat-controls reveal">
+    <div class="txt">
+      <div class="kicker">In the Inspector</div>
+      <h3>A Material menu<br>on every layer.</h3>
+      <p>Each layer row has a Material menu, with a Look chip beside it. <b style="color:var(--ink)">Custom…</b> opens that material's own knobs — reflection, tint, roughness, and more — for that layer only.</p>
+      <p>Plastic, metallic, and the glass rim reflect the background or a neutral studio, and with Metal ray tracing on, the structure itself. Materials are saved in your sessions and scenes.</p>
+    </div>
+    <div class="media"><img src="assets/screenshots/materials-inspector.webp" alt="The Inspector on Mac: the Cartoon layer's Material reads Custom (metallic) with Reflection, Reflection tint, and Roughness sliders, and the Look menu is open on Gold, Copper, Bronze, Steel, Chrome, Marble (statuary), and Clay (terracotta)" loading="lazy" width="1160" height="960"></div>
   </div>
+
+  <p class="dl-note">Also in 1.12: Roll spins at a constant speed in movies, fog fades to the background color instead of black, and a set of rendering fixes. <a class="other-install" href="https://github.com/javierbq/RayMol/releases/tag/v1.12.0">Release notes →</a></p>
 </section>
 
 <!-- DESIGN & PREDICT — on-device ProteinMPNN (Design mode, 1.9) and Boltz-2 / Protenix (Predict, 1.10).
@@ -500,8 +369,83 @@ html,body{overflow-x:hidden;max-width:100%}
   </div>
 </section>
 
+<!-- DEVICE LINEUP / PORTABILITY -->
+<section id="devices">
+  <div class="wrap" style="text-align:center">
+    <div class="kicker">Everywhere you work</div>
+    <h2 style="font-size:38px;font-weight:800;margin-top:10px">The same app,<br>on every screen.</h2>
+    <p style="color:var(--muted);font-size:18px;max-width:640px;margin:16px auto 0">One Swift + Metal codebase, native on each device. Open a <code>.pse</code> on the Mac, keep working on iPad, review it on your phone.</p>
+
+    <div class="reveal">
+    <div class="lineup">
+      <!-- laptop -->
+      <div class="laptop">
+        <div class="screen"><img src="assets/screenshots/device-mac.webp" alt="Raymol full studio on Mac" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="base"></div>
+      </div>
+      <!-- ipad -->
+      <div class="ipad"><div class="screen"><img src="assets/screenshots/device-ipad.webp" alt="Raymol on iPad" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></div>
+      <!-- iphone -->
+      <div class="iphone"><div class="notch"></div><div class="screen"><img src="assets/screenshots/device-iphone.webp" alt="Raymol on iPhone — full app" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></div>
+    </div>
+    </div>
+
+    <div style="margin-top:46px">
+      <div class="full-badge"><span class="dot"></span> The full app on iPhone — not a cut-down companion</div>
+      <p style="color:var(--muted);font-size:16px;max-width:620px;margin:18px auto 0">The iPhone build is the <b style="color:var(--ink)">complete app</b> — the same engine, representations, settings, command language, and export as the Mac, on the device in your pocket.</p>
+    </div>
+
+    <div class="reqs">
+      <span>💻 <b>Mac</b> — macOS 14+, Apple Silicon</span>
+      <span>📱 <b>iPad</b> — iPadOS 17+</span>
+      <span>📲 <b>iPhone</b> — iOS 17+</span>
+    </div>
+  </div>
+</section>
+
+<!-- FINE LAYER CONTROLS -->
+<section id="controls" class="wrap" style="padding-top:64px;padding-bottom:40px">
+  <div class="feat flip reveal">
+    <div class="txt">
+      <div class="kicker">Fine layer controls</div>
+      <h2>Style controls,<br>no command line required.</h2>
+      <p>A live inspector exposes per-representation controls — cartoon tube radius, surface quality, stick and sphere scale, transparency, material, per-object color — plus a scene card for lighting, shadows, and antialiasing. Drag a slider and the viewport updates. The familiar A/S/H/L/C menus are a tap away.</p>
+    </div>
+    <!-- CAPTURE: ObjectPanel inspector open, slider mid-drag, viewport updating. Replace this block with <div class="media"><img src="assets/screenshots/inspector.webp" alt="…" loading="lazy" width="1200" height="800"></div> -->
+    <div class="media"><img src="assets/screenshots/inspector.webp" alt="Raymol on Mac with the representation inspector open — live sliders for transparency, loop radius, and tube radius" loading="lazy" width="2400" height="1600" style="width:100%;height:auto;display:block"></div>
+  </div>
+</section>
+
+<!-- BUILT FOR TOUCH -->
+<section id="touch" class="wrap" style="padding-top:40px">
+  <div class="feat reveal">
+    <div class="txt">
+      <div class="kicker">Built for touch</div>
+      <h2>Rotate, zoom & roll<br>with one gesture.</h2>
+      <p>Multi-touch on iPhone and iPad — one finger to rotate, two to pan, pinch to zoom, twist to roll, combined in a single gesture. On Mac, trackpad gestures map to the camera, with the classic per-button mouse mode also available.</p>
+    </div>
+    <!-- CAPTURE: pinch/rotate gesture on iPad, molecule responding. Replace this block with <div class="media"><img src="assets/screenshots/touch.webp" alt="…" loading="lazy" width="1200" height="800"></div> -->
+    <div class="media"><img src="assets/screenshots/touch.webp" alt="Raymol's touch gesture guide on iPad — rotate, pan, zoom, roll, clip, select" loading="lazy" width="1640" height="2360" style="width:100%;height:auto;display:block"></div>
+  </div>
+</section>
+
+<!-- THEMES -->
+<section id="themes" class="wrap">
+  <div style="text-align:center;max-width:640px;margin:0 auto">
+    <div class="kicker">Make it yours</div>
+    <h2 style="font-size:34px;font-weight:800;margin-top:10px">A theme for every mood.</h2>
+    <p style="color:var(--muted);font-size:17px;margin-top:14px">Restyle the entire interface in a tap. Four themes ship built in — and <b style="color:var(--ink)">Theme Studio</b> lets you craft your own. Your theme follows you across Mac, iPad, and iPhone.</p>
+  </div>
+  <div class="themes-grid reveal">
+    <figure class="theme-card"><img src="assets/screenshots/theme-classic.webp" alt="Raymol Classic theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Classic</figcaption></figure>
+    <figure class="theme-card"><img src="assets/screenshots/theme-paper.webp" alt="Raymol Paper theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Paper</figcaption></figure>
+    <figure class="theme-card"><img src="assets/screenshots/theme-sunset.webp" alt="Raymol Sunset theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Sunset</figcaption></figure>
+    <figure class="theme-card"><img src="assets/screenshots/theme-dawn.webp" alt="Raymol Dawn theme on iPhone" loading="lazy" width="1206" height="2622"><figcaption>Dawn</figcaption></figure>
+  </div>
+</section>
+
 <!-- SECONDARY GRID -->
-<section class="wrap" style="padding-top:64px;padding-bottom:40px">
+<section id="toolkit" class="wrap" style="padding-top:64px;padding-bottom:40px">
   <div style="text-align:center;max-width:640px;margin:0 auto">
     <div class="kicker">Everything you expect from PyMOL</div>
     <h2 style="font-size:34px;font-weight:800;margin-top:10px">A full structural-biology toolkit</h2>
@@ -555,6 +499,64 @@ html,body{overflow-x:hidden;max-width:100%}
         <img src="assets/sponsors/openfold.svg" alt="OpenFold" width="180" height="44" loading="lazy">
       </a>
     </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD / INSTALL CHANNELS -->
+<section id="download" class="wrap" style="padding-top:72px;padding-bottom:40px">
+  <div style="text-align:center;max-width:680px;margin:0 auto">
+    <div class="kicker">Download</div>
+    <h2 style="font-size:34px;font-weight:800;margin-top:10px">Get Raymol, free.</h2>
+    <p style="color:var(--muted);font-size:17px;margin-top:14px">Three ways to install on Mac, one tap on iPhone and iPad — the same app and the same engine on every screen.</p>
+  </div>
+
+  <div class="dl-group">
+  <div class="kicker">For Mac</div>
+  <div class="dl-grid reveal">
+    <div class="dl-card">
+      <h3>Mac App Store</h3>
+      <p>One-click install and updates through the App Store.</p>
+      <a class="store-badge" href="https://apps.apple.com/us/app/raymol/id6781513038?mt=12" aria-label="Download Raymol on the Mac App Store">
+        <img src="assets/badges/mac-app-store.svg" alt="Download on the Mac App Store" width="180" height="60">
+      </a>
+    </div>
+    <div class="dl-card">
+      <h3>Direct download</h3>
+      <span class="mcp-badge" title="Includes the built-in MCP server, so Claude can drive Raymol">✦ MCP included</span>
+      <p>Notarized <code>.dmg</code> · 84 MB · auto-updating.</p>
+      <a class="btn btn-primary" style="text-decoration:none" href="https://github.com/javierbq/RayMol/releases/latest/download/RayMol.dmg">Download .dmg</a>
+    </div>
+    <div class="dl-card">
+      <h3>Homebrew</h3>
+      <span class="mcp-badge" title="Includes the built-in MCP server, so Claude can drive Raymol">✦ MCP included</span>
+      <p>Install and update from the command line.</p>
+      <div class="brew">
+        <code id="brew-cmd">brew install --cask javierbq/raymol/raymol</code>
+        <button class="brew-copy" type="button" aria-live="polite" aria-label="Copy the Homebrew install command">Copy</button>
+      </div>
+    </div>
+  </div>
+  <p class="dl-note"><b>Same app, two builds.</b> The direct-download and Homebrew builds are identical and include the built-in MCP server, so Claude can drive Raymol. The Mac App Store build is the same app without that integration — App Store sandboxing doesn't allow it. Everything else is the same.</p>
+  <div class="reqs" style="margin-top:22px">
+    <span>🆓 <b>Free</b></span>
+    <span>💻 <b>macOS 14+</b> · Apple Silicon</span>
+  </div>
+  </div>
+
+  <div class="dl-group">
+  <div class="kicker">For iPhone &amp; iPad</div>
+  <div class="dl-card dl-single reveal">
+    <h3>App Store</h3>
+    <p>One universal app for iPhone and iPad — install and update through the App Store.</p>
+    <a class="store-badge" href="https://apps.apple.com/us/app/raymol/id6781513038" aria-label="Download Raymol for iPhone and iPad on the App Store">
+      <img src="assets/badges/app-store.svg" alt="Download on the App Store" width="180" height="60">
+    </a>
+  </div>
+  <div class="reqs" style="margin-top:22px">
+    <span>🆓 <b>Free</b></span>
+    <span>📲 <b>iPhone</b> — iOS 17+</span>
+    <span>📱 <b>iPad</b> — iPadOS 17+</span>
+  </div>
   </div>
 </section>
 
