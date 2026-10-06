@@ -5,8 +5,8 @@
     --grad:linear-gradient(110deg,#F0185C 0%,#F2542D 52%,#F9A825 100%);
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth;overflow-x:hidden}
-  body{margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;
+  html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip;scroll-padding-top:64px}
+  body{margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;overflow-x:clip;
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
     -webkit-font-smoothing:antialiased;line-height:1.5}
   .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
@@ -118,6 +118,9 @@
   .cta-dl .soon-note{flex:1 0 100%;text-align:center;margin-top:0}
   .freenote{margin-top:14px;font-size:13px;color:#8a93a0}
   .hero-shot{margin-top:54px}
+  /* hero visual: a 16:10 recording of Raymol playing a movie; playback is initVideos() in main.js */
+  .hero-video{position:relative;aspect-ratio:16/10;border-radius:16px;overflow:hidden;border:1px solid #1c1f27;box-shadow:0 40px 90px rgba(11,13,18,.34);background:#000}
+  .hero-video video{display:block;width:100%;height:100%;object-fit:cover}
   .theme-carousel{position:relative;aspect-ratio:2400/1600;border-radius:16px;overflow:hidden;border:1px solid #1c1f27;box-shadow:0 40px 90px rgba(11,13,18,.34);background:#0a0b0f}
   .tc-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .9s ease}
   .tc-slide.active{opacity:1}
@@ -135,6 +138,21 @@
   .trust{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0}
   .trust .row{display:flex;align-items:center;justify-content:center;gap:42px;flex-wrap:wrap;color:#5b6470;font-size:14px;font-weight:500}
   .trust b{color:var(--ink)}
+
+  /* HIGHLIGHTS BENTO — four tiles under the hero, each a link down to its section */
+  .hl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .hl-tile{min-width:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;transition:transform .2s ease,box-shadow .2s ease}
+  .hl-tile:hover,.hl-tile:focus-visible{transform:translateY(-3px);box-shadow:0 14px 34px rgba(11,13,18,.14)}
+  .hl-tile img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--darkpanel)}
+  .hl-tile--ui img{object-fit:contain;background:var(--bg2);padding:14px}
+  .hl-body{display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px}
+  .hl-title{font-weight:700;font-size:16px;color:var(--ink)}
+  .hl-line{font-size:13.5px;color:var(--muted)}
+  .hl-note{font-size:12px;color:#8a93a0}
+  .hl-trust{margin:22px 0 0;text-align:center;font-size:13px;color:#8a93a0}
+  @media(max-width:1000px){.hl-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.hl-grid{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){.hl-tile{transition:none}.hl-tile:hover,.hl-tile:focus-visible{transform:none}}
 
   /* DEVICE LINEUP */
   .lineup{display:flex;align-items:flex-end;justify-content:center;gap:0;margin-top:56px;min-height:330px}
@@ -201,6 +219,35 @@
   .feat h2{font-size:38px;font-weight:800;margin-top:12px;line-height:1.1}
   .feat p{font-size:17px;color:var(--muted);margin-top:16px}
   .feat .media{min-height:0}
+
+  /* MATERIALS (1.12) — four image cards, then a .feat row for the Inspector */
+  .mat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:40px}
+  .mat-card{min-width:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+  .mat-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--darkpanel)}
+  .mat-body{padding:18px 20px 22px}
+  .mat-body h3{font-size:17px}
+  .mat-body p{font-size:14px;color:var(--muted);margin-top:8px}
+  .mat-controls{margin-top:72px}
+  .mat-controls h3{font-size:32px;font-weight:800;margin-top:12px;line-height:1.1}
+  @media(max-width:1000px){.mat-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.mat-grid{grid-template-columns:1fr}.mat-controls{margin-top:48px}}
+
+  /* DESIGN & PREDICT — a dark band like .compare, holding two tool cards */
+  .tools{background:var(--darkpanel);color:#fff}
+  .tools-h2{font-size:38px;font-weight:800;color:#fff;margin-top:10px}
+  .tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
+  .tool-card{min-width:0;border:1px solid #20242e;border-radius:18px;overflow:hidden;background:#12141b}
+  .tool-card img{display:block;width:100%;height:auto;border-bottom:1px solid #20242e}
+  .tool-body{padding:24px 26px 28px}
+  .tool-tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+  .tool-body h3{font-size:22px;margin-top:10px;color:#fff}
+  .tool-body p{font-size:15px;color:#aeb6c2;margin-top:10px}
+  .tool-facts{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:13.5px;color:#cfd5de}
+  .tool-facts li{position:relative;padding-left:20px}
+  .tool-facts li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--grad)}
+  .tools-note{max-width:720px;margin:30px auto 0;text-align:center;font-size:14px;color:#8a93a0;line-height:1.65}
+  @media(max-width:880px){.tool-grid{grid-template-columns:1fr}}
+  @media(max-width:560px){.tools-h2{font-size:30px}.tool-body{padding:20px 20px 24px}}
 
   /* THEMES */
   .themes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
