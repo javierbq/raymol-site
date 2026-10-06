@@ -72,7 +72,7 @@ function initCarousel(){
   });
 }
 
-function initHeroCarousel(){
+function initThemeCarousel(){
   const car = document.querySelector('.theme-carousel');
   if(!car) return;
   const slides = Array.from(car.querySelectorAll('.tc-slide'));
@@ -118,11 +118,36 @@ function initDownload(){
   });
 }
 
+// Muted loops that play only while on screen. Native controls stay on, so anyone can
+// stop the loop (WCAG 2.2.2) and the video works without JS; under reduced motion it
+// never starts itself. A viewer's pause sticks: scrolling away and back won't restart it.
+function initVideos(){
+  const vids = document.querySelectorAll('video[data-autoplay]');
+  if(!vids.length) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const v = e.target;
+      if(!e.isIntersecting){ if(!v.paused){ v.dataset.autoPaused = '1'; v.pause(); } return; }
+      if(v.dataset.userPaused) return;
+      // autoplay can still be refused (e.g. Low Power Mode); the controls are already there
+      v.play().catch(() => {});
+    });
+  }, { threshold: 0.1 });
+  vids.forEach(v => {
+    v.muted = true;
+    v.addEventListener('pause', () => { if(v.dataset.autoPaused) delete v.dataset.autoPaused; else v.dataset.userPaused = '1'; });
+    v.addEventListener('play', () => { delete v.dataset.userPaused; });
+    io.observe(v);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
-  initHeroCarousel();
+  initThemeCarousel();
   initCompare();
   initCarousel();
   initReveal();
   initDownload();
+  initVideos();
 });
